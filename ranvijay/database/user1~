@@ -1,0 +1,34 @@
+create table user1(
+id UNSIGNED TINYINT NOT NULL AUTO_INCREMENT,
+fname VARCHAR(15) NOT NULL,
+lname VARCHAR(15) NOT NULL,
+emailid VARCHAR(40),
+age UNSIGNED TINYINT(3) NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+
+insert into user1 values(
+NULL,'rana','singh','rana.ranvijay@weboniselab.com',22,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'aditya','kamatar','adityak@weboniselab.com',22,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'anway','kumar','anwayk@weboniselab.com',23,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'rahul','singh','rahul_singh@gmail.com',22,NOW(),NOW());
+
+
+
+insert into user1 values(
+NULL,'rakesh','sinha','rakesh_sinha@yahoo.com',24,NOW(),NOW());

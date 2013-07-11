@@ -1,0 +1,189 @@
+<html>
+<head>
+	<title>table format</title>
+<style>
+@keyframes myfirst
+{
+from {background:gray;}
+to {background:yellow;}
+to {background:red;}
+}
+
+@keyframes myfirstmove
+{
+0%   {left:0px; top:0px;}
+
+50%  {left:200px; top:0px;}
+
+100% {left:-200px; top:0px;}
+}
+body
+{
+	margin : 1% 1% 1% 1%;
+	background-color:#00eeff;
+
+}
+div.heading
+{
+	text-align:center;
+	float:top;
+	padding:25px;
+	width:95%;
+	border-style:solid;
+	position:fixed;
+
+	font-size:1.5em;
+	background-color:#b0c4de;
+
+	
+
+	background:gray;
+	animation:myfirst 10s;
+	
+	
+}
+div.footer
+{
+	text-align:center;
+	float:bottom;
+	padding:25px;
+	border-style:solid;
+	width:95%;
+	position:fixed;
+	
+	top:88%;
+	background:gray;
+}
+div.leftside
+{
+	
+	top:13%;
+	text-align:center;
+	border-style:ridge;
+	height:75%;
+	width:25%;
+	position:fixed;
+	background-color:#b0c4de;
+
+}
+div.rightside
+{
+	
+	top:13%;
+	left:26%;
+	border-style:ridge;
+	height:75%;
+	width:73%;
+	position:fixed;
+	overflow:auto;
+	background-color:#e0ffff;
+
+}
+li
+{
+	word-spacing:3px;
+	padding-top:50px;
+	text-align:left;
+	text-padding:20px;
+}
+p
+{
+	font-size:1.2em;
+	padding:20px;
+	text-align:justify;
+	
+}
+.para
+{
+	margin-left:230px;
+}
+.image_style
+{
+	padding:20px;
+	
+	position:absolute;
+	
+}
+.tilt
+{
+transform:rotate(13deg);
+position : absolute;
+color:#ffffff;
+font-size:1.5em;
+font-style:italic;
+margin-left:80%;
+margin-top:0%;
+
+
+}
+.moveAll
+{
+position:relative;
+animation-name:myfirstmove;
+animation-duration:5s;
+animation-timing-function:linear;
+animation-delay:2s;
+animation-iteration-count:infinite;
+animation-direction:alternate;
+animation-play-state:running;
+}
+</style>
+</head>	
+
+
+ <body >
+	
+	<div class="heading" >
+		Milkha Singh <div class="moveAll">(The Flying Sikh)</div>
+		
+	</div >
+	<div class="tilt"><h5>movie coming very soon</div>
+	<div class="leftside">
+			<ul>
+				<li style="list-style-type:none"><a href="http://www.milkhasingh.co.in/the-flying-sikh.htm">The Flying Sikh</a> </ld>
+				<li style="list-style-type:none"><a href="http://www.milkhasingh.co.in/career.htm">Milkha Singh Career</a> </ld>
+				<li style="list-style-type:none"><a href="http://www.milkhasingh.co.in/biography.htm">Milkha Singh Biography</a> </ld>
+				
+			</ul>
+	  	</div>
+		<div class="rightside">
+			<img class="image_style" src="milkha.jpeg" />	
+			<p class="para">
+					
+			One of most outstanding person in athletics of India is 
+			<strong>Milkha Singh</strong>. 
+			Due to marvellous speed in running on tracks, Singh earns a nickname 
+			<strong>Flying Sikh</strong> from Ayub Khan a Pakistan General after defeating 
+			Abdul Khaliq, Pakistan faster runner in year 1962. 1935 was year when this 
+			great athlete was born in undivided  Indias Western Punjab.
+			</p>
+			<p class="para">
+			In 1953 Singh joins Indian Army. After joining, Milkha Singh pays special attention
+ 			towards athletics and begins training for a 400 meters race. In a very less time, 
+			Singh succeed in establishing one new record for a 400 meters race, which earned 
+			great prestige and fame.
+			</p>
+			<p>
+			In year 1957, Singh establishes one national record in 400 meters race of 47.5 secs.
+			In Third Asiad, which was held at Japan capital Tokyo, Milkha Singh creates two 
+			records in 200 and 400 meters races. In 4th Asiad, which was held at Indonesia 
+			capital Jakarta, Milkha Singh wins a 400 meters race and won one gold medal for 
+			India. In 1959, Indian Government honours Milkha Singh for hitherto, incredible
+			and notable achievements and performance in arena of sports throughout sports 
+			career with Padma Shri and Arjuna Award. At present, Milkha Singh is completely
+			dedicated towards promotional activities for sports held in India.
+
+			</p>
+				
+			
+		</div>
+	<div class="footer" >
+		<i>Copyright webonise Ltd.</i>
+	</div>
+
+
+	
+
+
+ </body>
+</html>

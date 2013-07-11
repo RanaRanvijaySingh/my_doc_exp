@@ -1,0 +1,6 @@
+import java.io.*;
+public interface Polygon
+{
+	void getSumOfInnerAngle();
+	long getArea();
+}

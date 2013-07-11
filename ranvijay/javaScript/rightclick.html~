@@ -1,0 +1,58 @@
+<html>
+<title>right click option </title>
+<head>
+	
+</head>
+
+<script>
+
+if (document.addEventListener) 
+    {
+        document.addEventListener('contextmenu', function(event) 
+	{
+        	callCustomMenu(event);    
+        	
+        }, false);
+    } 
+if (document.addEventListener) 
+    {
+        document.addEventListener('click', function(event)
+	{
+		document.getElementById('msg').innerHTML ="";
+	}, false);
+    } 
+
+function callCustomMenu(event)
+{
+	event.preventDefault();
+
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.open("GET","option",true);
+	xmlhttp.send();
+	var x;
+	var y;
+	x=event.pageX;
+	y=event.pageY;
+	
+	xmlhttp.onreadystatechange = function()
+	{
+	  	var menu =xmlhttp.responseText;
+		//alert("clicked");
+	    	document.getElementById('msg').innerHTML = menu;
+		document.getElementById('msg').style.marginTop=y;
+		document.getElementById('msg').style.marginLeft=x;
+		
+		
+	}
+
+	
+}
+	
+</script>
+
+ <body>
+<div id="msg" ></div>
+
+</div>
+</body>
+</html>

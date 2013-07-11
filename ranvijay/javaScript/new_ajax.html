@@ -1,0 +1,59 @@
+<html>
+<head>
+<style>
+	div {
+		border-style:solid;
+		border-width:medium;	
+	}
+	ul
+	{
+		list-style-type:none;
+	}
+	
+</style>
+<script type="text/javascript">
+
+
+
+function customright(evt)
+{
+evt.preventDefault();
+var xmlhttp;
+
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.open("GET","abc.txt",true);
+xmlhttp.send();
+xmlhttp.onreadystatechange =function() {
+if(xmlhttp.readyState==4)
+{
+	var contextmenu =xmlhttp.responseText;
+	document.getElementById('d').innerHTML = contextmenu;
+	document.getElementById('d').style.marginTop=evt.clientY;
+	document.getElementById('d').style.marginLeft=evt.clientX;
+	document.getElementById('d').style.height=200;
+	document.getElementById('d').style.width=200;
+}
+}
+}
+if (document.addEventListener)
+{
+	//window.addEventListener("click", function(evt){ }, false) //invoke function
+	window.addEventListener("contextmenu", function(evt){customright(evt);}, false) //
+	//evt.preventDefault();
+}
+
+
+</script>
+
+</head>
+<body  >
+<div name="d" id="d" >
+</div>
+
+</body>
+</html>
+

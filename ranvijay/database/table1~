@@ -1,0 +1,8 @@
+create table user1(
+id int NOT NULL UNIQUE,
+fname VARCHAR(15) NOT NULL,
+lname VARCHAR(15) NOT NULL,
+created DATE,
+modified DATETIME,
+PRIMARY KEY(id)
+);

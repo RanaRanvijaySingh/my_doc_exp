@@ -1,0 +1,18 @@
+user1={
+	_id : 1,
+	name : {fname: 'ranvijay',lname : 'singh'},
+	assesment : [{ _id: 1 },{_id: 2}]
+
+	};
+user2={
+	_id : 2,
+	name : {fname: 'aditya',lname : 'kamatar'},
+	assesment : [{ _id: 1 }]
+
+	};
+user3={
+	_id : 3,
+	name : {fname: 'goku',lname : 'warrior'},
+	assesment : [{ _id: 2 },{ _id: 3 }]
+
+	};

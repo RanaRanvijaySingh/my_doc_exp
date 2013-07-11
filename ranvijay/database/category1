@@ -1,0 +1,35 @@
+create table category1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(15) NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+
+insert into category1 values(
+NULL,'c',NOW(),NOW());
+
+insert into category1 values(
+NULL,'c++',NOW(),NOW());
+
+insert into category1 values(
+NULL,'javaselect',NOW(),NOW());
+
+insert into category1 values(
+NULL,'c#',NOW(),NOW());
+
+insert into category1 values(
+NULL,'DS',NOW(),NOW());
+
+insert into category1 values(
+NULL,'php',NOW(),NOW());
+
+insert into category1 values(
+NULL,'html',NOW(),NOW());
+
+insert into category1 values(
+NULL,'JS',NOW(),NOW());

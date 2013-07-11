@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title>table format</title>
+</head>
+
+<body >
+ 
+	<table cellspacing="2" cellpadding="2" border="1">
+	
+		<tr>
+			<td></td>
+		</tr>
+	
+
+	</table>
+
+
+ </body>
+ </html>

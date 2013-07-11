@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/cbgapi.loaded_0"></script><script src="Java%20-%20Multithreading%20Programming%20Tutorial_files/auth013.js" type="text/javascript"></script><script gapi_processed="true" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/plusone.js" type="text/javascript"></script><link media="all" href="Java%20-%20Multithreading%20Programming%20Tutorial_files/widget115.css" type="text/css" rel="stylesheet">
+<meta charset="utf-8">
+<title>Java - Multithreading Programming Tutorial</title>
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="Java Multithreading - Learning Java in simple and easy steps : A beginner's tutorial containing complete knowledge of Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<meta name="Keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<!-- base href="http://www.tutorialspoint.com/" -->
+<link rel="stylesheet" type="text/css" href="Java%20-%20Multithreading%20Programming%20Tutorial_files/style.css">
+<link rel="stylesheet" type="text/css" href="Java%20-%20Multithreading%20Programming%20Tutorial_files/prettify.css">
+<script type="text/javascript" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/prettify.js"></script>
+<style media="screen" type="text/css">
+/* Java Scheme */
+#header{ 
+background:#F3943D !important;
+}
+#topmenu
+{
+background-color:#5382A1 !important;
+}
+#leftcol ul.menu li.heading 
+{
+background:#F3943D !important;
+border:1px solid #964800 !important;
+}
+#leftcol, #middlecol, #rightcol {min-height:1520px; padding:0px;}
+</style>
+<script src="Java%20-%20Multithreading%20Programming%20Tutorial_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+</script>
+<div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Java%20-%20Multithreading%20Programming%20Tutorial_files/sh122.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh789"></iframe></div><script src="Java%20-%20Multithreading%20Programming%20Tutorial_files/core084.js" type="text/javascript"></script></head>
+<body onload="prettyPrint()">
+<div id="header">
+<div class="wrapper">
+<h1 class="logo"><a href="http://www.tutorialspoint.com/index.htm">Tutorials Point - Simply Easy Learning</a></h1>
+<div id="search">
+<form method="get" id="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+<input name="sitesearch" value="www.tutorialspoint.com" type="hidden">
+<input name="as_q" id="s" value="Search this site..." onfocus="if (this.value == 'Search this site...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this site...';}" type="text">
+<input value="FORID:11" name="cof" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input class="submit btn" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/icon-search.png" alt="Go" type="image">
+</form>
+</div>
+</div>
+</div>
+<div id="topmenu">
+<div class="wrapper">
+<div id="left">
+<a href="http://www.tutorialspoint.com/index.htm" target="_top">HOME </a>
+<a href="http://www.tutorialspoint.com/java/index.htm" target="_top">JAVA </a>
+<a href="http://www.tutorialspoint.com/php/index.htm" target="_top">PHP </a>
+<a href="http://www.tutorialspoint.com/python/index.htm" target="_top">Python </a>
+<a href="http://www.tutorialspoint.com/ruby/index.htm" target="_top">Ruby </a>
+<a href="http://www.tutorialspoint.com/perl/index.htm" target="_top">Perl </a>
+<a href="http://www.tutorialspoint.com/html/index.htm" target="_top">HTML </a>
+<a href="http://www.tutorialspoint.com/css/index.htm" target="_top">CSS </a>
+<a href="http://www.tutorialspoint.com/javascript/index.htm" target="_top">Javascript </a>
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a>
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a>
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+<a href="http://www.tutorialspoint.com/more.htm" target="_top">MORE...</a>
+</div>
+<div id="right">
+<a href="http://www.tutorialspoint.com/references.htm" target="_top">REFERENCES</a> |
+<a href="http://www.tutorialspoint.com/forums/index.php" target="_top">FORUM</a> |
+<a href="http://www.tutorialspoint.com/about/index.htm" target="_top">ABOUT</a> |
+<a href="http://www.tutorialspoint.com/about/contact_us.htm" target="_top">CONTACT</a>
+</div>
+</div>
+</div>
+<div class="wrapper">
+<div id="leftcol">
+<div class="mini-logo">
+<img src="Java%20-%20Multithreading%20Programming%20Tutorial_files/java-mini-logo.png" alt="Java Tutorial">
+</div>
+<ul class="menu">
+<li class="heading">Java Basics</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/index.htm">Java - Home</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overview.htm">Java - Overview</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_environment_setup.htm">Java - Environment Setup</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_syntax.htm">Java - Basic Syntax</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_object_classes.htm">Java - Object &amp; Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_datatypes.htm">Java - Basic Datatypes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_variable_types.htm">Java - Variable Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_modifier_types.htm">Java - Modifier Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_operators.htm">Java - Basic Operators</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_loop_control.htm">Java - Loop Control</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_decision_making.htm">Java - Decision Making</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_numbers.htm">Java - Numbers</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_characters.htm">Java - Characters</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_strings.htm">Java - Strings</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_arrays.htm">Java - Arrays</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_date_time.htm">Java - Date &amp; Time</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_regular_expressions.htm">Java - Regular Expressions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_methods.htm">Java - Methods</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_files_io.htm">Java - Files and I/O</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_exceptions.htm">Java - Exceptions</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Object Oriented</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_inheritance.htm">Java - Inheritance</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overriding.htm">Java - Overriding</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_polymorphism.htm">Java - Polymorphism</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_abstraction.htm">Java - Abstraction</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_encapsulation.htm">Java - Encapsulation</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_interfaces.htm">Java - Interfaces</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_packages.htm">Java - Packages</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Advanced</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_data_structures.htm">Java - Data Structures</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_collections.htm">Java - Collections</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_generics.htm">Java - Generics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_serialization.htm">Java - Serialization</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_networking.htm">Java - Networking</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_sending_email.htm">Java - Sending Email</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_multithreading.htm"><b>Java - Multithreading</b></a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_applet_basics.htm">Java - Applet Basics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_documentation.htm">Java - Documentation</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Useful Resources</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_quick_guide.htm">Java - Quick Guide</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_library_classes.htm">Java - Library Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_useful_resources.htm">Java Useful Resources</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/javaexamples/index.htm">Java - Examples</a></li>
+</ul>
+<ul class="menu">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</div><!-- leftcol -->
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java - Multithreading</h1>
+<div class="topgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_sending_email.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_applet_basics.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>Java provides built-in support for <i>multithreaded programming</i>. A
+ multithreaded program contains two or more parts that can run 
+concurrently. Each part of such a program is called a thread, and each 
+thread defines a separate path of execution.</p>
+<p>A multithreading is a specialized form of multitasking. Multithreading requires less overhead than multitasking processing.</p>
+<p>I need to define another term related to threads: <b>process:</b> A 
+process consists of the memory space allocated by the operating system 
+that can contain one or
+more threads. A thread cannot exist on its own; it must be a part of a 
+process. A process remains running until all of the non-daemon threads 
+are done executing.</p>
+<p>Multithreading enables you to write very efficient programs that make
+ maximum use of the CPU, because idle time can be kept to a minimum.</p>
+<h2>Life Cycle of a Thread:</h2>
+<p>A thread goes through various stages in its life cycle. For example, a
+ thread is born, started, runs, and then dies. Following diagram shows 
+complete life cycle of a thread.</p>
+<center>
+<img src="Java%20-%20Multithreading%20Programming%20Tutorial_files/java_thread.jpg" alt="Java Thread">
+</center>
+<p>Above mentioned stages are explained here:</p>
+<ul class="list">
+<li><p><b>New:</b> A new thread begins its life cycle in the new state. 
+It remains in this state until the program starts the thread. It is also
+ referred to as a born thread.</p></li>
+<li><p><b>Runnable:</b> After a newly born thread is started, the thread
+ becomes runnable. A thread in this state is considered to be executing 
+its task.</p></li>
+<li><p><b>Waiting:</b> Sometimes a thread transitions to the waiting 
+state while the thread waits for another thread to perform a task.A 
+thread transitions back to the runnable state only when another thread 
+signals the waiting thread to continue executing.</p></li>
+<li><p><b>Timed waiting:</b> A runnable thread can enter the timed 
+waiting state for a specified interval of time. A thread in this state 
+transitions back to the runnable state when that time interval expires 
+or when the event it is waiting for occurs.</p></li>
+<li><p><b>Terminated: </b> A runnable thread enters the terminated state when it completes its task or otherwise terminates.</p></li>
+</ul>
+<h2>Thread Priorities:</h2>
+<p>Every Java thread has a priority that helps the operating system determine the order in which threads are scheduled.</p>
+<p>Java priorities are in the range between MIN_PRIORITY (a constant of 
+1) and MAX_PRIORITY (a constant of 10). By default, every thread is 
+given priority NORM_PRIORITY (a constant of 5).</p>
+<p>Threads with higher priority are more important to a program and 
+should be allocated processor time before lower-priority threads. 
+However, thread priorities cannot guarantee the order in which threads 
+execute and very much platform dependentant.</p>
+<h2>Creating a Thread:</h2>
+<p>Java defines two ways in which this can be accomplished:</p>
+<ul class="list">
+<li><p>You can implement the Runnable interface.</p></li>
+<li><p>You can extend the Thread class, itself.</p></li>
+</ul>
+<h2>Create Thread by Implementing Runnable:</h2>
+<p>The easiest way to create a thread is to create a class that implements the <b>Runnable</b> interface.</p>
+<p>To implement Runnable, a class need only implement a single method called <b>run( )</b>, which is declared like this:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">(</span><span class="pln"> </span><span class="pun">)</span></pre>
+<p>You will define the code that constitutes the new thread inside run()
+ method. It is important to understand that run() can call other 
+methods, use other classes, and
+declare variables, just like the main thread can.</p>
+<p>After you create a class that implements Runnable, you will 
+instantiate an object of type Thread from within that class. Thread 
+defines several constructors. The one that
+we will use is shown here:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Thread</span><span class="pun">(</span><span class="typ">Runnable</span><span class="pln"> threadOb</span><span class="pun">,</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> threadName</span><span class="pun">);</span></pre>
+<p>Here <i>threadOb</i> is an instance of a class that implements the Runnable interface and the name of the new thread is specified by <i>threadName</i>.</p>
+<p>After the new thread is created, it will not start running until you call its <b>start( )</b> method, which is declared within Thread. The start( ) method is shown here:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="kwd">void</span><span class="pln"> start</span><span class="pun">(</span><span class="pln"> </span><span class="pun">);</span></pre>
+<h2>Example:</h2>
+<p>Here is an example that creates a new thread and starts it running:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="com">// Create a new thread.</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">NewThread</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Runnable</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">Thread</span><span class="pln"> t</span><span class="pun">;</span><span class="pln">
+   </span><span class="typ">NewThread</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Create a new, second thread</span><span class="pln">
+      t </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> </span><span class="str">"Demo Thread"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> t</span><span class="pun">);</span><span class="pln">
+      t</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Start the thread</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   
+   </span><span class="com">// This is the entry point for the second thread.</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child Thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+            </span><span class="com">// Let the thread sleep for a while.</span><span class="pln">
+            </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">500</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+     </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child interrupted."</span><span class="pun">);</span><span class="pln">
+     </span><span class="pun">}</span><span class="pln">
+     </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Exiting child thread."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ThreadDemo</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">NewThread</span><span class="pun">();</span><span class="pln"> </span><span class="com">// create a new thread</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+           </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main Thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+           </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main thread interrupted."</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main thread exiting."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>This would produce following result:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Child</span><span class="pln"> thread</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">[</span><span class="typ">Demo</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="pln">main</span><span class="pun">]</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+</span><span class="typ">Exiting</span><span class="pln"> child thread</span><span class="pun">.</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> thread exiting</span><span class="pun">.</span></pre>
+<h2>Create Thread by Extending Thread:</h2>
+<p>The second way to create a thread is to create a new class that extends <b>Thread</b>, and then to create an instance of that class.</p>
+<p>The extending class must override the <b>run( )</b> method, which is the entry point for the new thread. It must also call <b>start( )</b> to begin execution of the new thread.</p>
+<h2>Example:</h2>
+<p>Here is the preceding program rewritten to extend Thread:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="com">// Create a second thread by extending Thread</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">NewThread</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="typ">NewThread</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// Create a new, second thread</span><span class="pln">
+      </span><span class="kwd">super</span><span class="pun">(</span><span class="str">"Demo Thread"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">);</span><span class="pln">
+      start</span><span class="pun">();</span><span class="pln"> </span><span class="com">// Start the thread</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+
+   </span><span class="com">// This is the entry point for the second thread.</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child Thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+			</span><span class="com">// Let the thread sleep for a while.</span><span class="pln">
+            </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">500</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Child interrupted."</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Exiting child thread."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ExtendThread</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">NewThread</span><span class="pun">();</span><span class="pln"> </span><span class="com">// create a new thread</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="kwd">for</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> i </span><span class="pun">=</span><span class="pln"> </span><span class="lit">5</span><span class="pun">;</span><span class="pln"> i </span><span class="pun">&gt;</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> i</span><span class="pun">--)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main Thread: "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> i</span><span class="pun">);</span><span class="pln">
+            </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main thread interrupted."</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Main thread exiting."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>This would produce following result:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Child</span><span class="pln"> thread</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">[</span><span class="typ">Demo</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">,</span><span class="lit">5</span><span class="pun">,</span><span class="pln">main</span><span class="pun">]</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">5</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">4</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">3</span><span class="pln">
+</span><span class="typ">Child</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+</span><span class="typ">Exiting</span><span class="pln"> child thread</span><span class="pun">.</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">2</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1</span><span class="pln">
+</span><span class="typ">Main</span><span class="pln"> thread exiting</span><span class="pun">.</span></pre>
+<h2>Thread Methods:</h2>
+<p>Following is the list of important medthods available in the Thread class.</p>
+<table class="src">
+<tbody><tr>
+<th>SN</th><th>Methods with Description</th></tr>
+<tr><td>1</td><td><b>public void start()</b><br>Starts the thread in a separate path of execution, then invokes the run() method on this Thread object.</td></tr>
+<tr><td>2</td><td><b>public void run()</b><br>If this Thread object was instantiated using a separate Runnable target, the run() method is invoked on that Runnable object.</td></tr>
+<tr><td>3</td><td><b>public final void setName(String name)</b><br>Changes the name of the Thread object. There is also a getName() method for retrieving the name.</td></tr>
+<tr><td>4</td><td><b>public final void setPriority(int priority)</b><br>Sets the priority of this Thread object. The possible values are between 1 and 10.</td></tr>
+<tr><td>5</td><td><b>public final void setDaemon(boolean on)</b><br>A parameter of true denotes this Thread as a daemon thread.</td></tr>
+<tr><td>6</td><td><b>public final void join(long millisec)</b><br>The current thread invokes this method on a second thread, causing the current thread to block until the
+second thread terminates or the specified number of milliseconds passes.</td></tr>
+<tr><td>7</td><td><b>public void interrupt()</b><br>Interrupts this thread, causing it to continue execution if it was blocked for any reason.</td></tr>
+<tr><td>8</td><td><b>public final boolean isAlive()</b><br>Returns true if the thread is alive, which is any time after the thread has been started but before it runs to completion.</td></tr>
+</tbody></table>
+<p>The previous methods are invoked on a particular Thread object. The 
+following methods in the Thread class are static. Invoking one of the 
+static methods performs the operation on the currently running thread</p>
+<table class="src">
+<tbody><tr>
+<th>SN</th><th>Methods with Description</th></tr>
+<tr><td>1</td><td><b>public static void yield()</b><br>Causes the currently running thread to yield to any other threads of the same priority that are waiting to be scheduled</td></tr>
+<tr><td>2</td><td><b>public static void sleep(long millisec)</b><br>Causes the currently running thread to block for at least the specified number of milliseconds</td></tr>
+<tr><td>3</td><td><b>public static boolean holdsLock(Object x)</b><br>Returns true if the current thread holds the lock on the given Object.</td></tr>
+<tr><td>4</td><td><b>public static Thread currentThread()</b><br>Returns a reference to the currently running thread, which is the thread that invokes this method.</td></tr>
+<tr><td>5</td><td><b>public static void dumpStack()</b><br>Prints the stack trace for the currently running thread, which is useful when debugging a multithreaded
+application.</td></tr>
+</tbody></table>
+<h2>Example:</h2>
+<p>The following ThreadClassDemo program demonstrates some of these methods of the Thread class:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="com">// File Name : DisplayMessage.java</span><span class="pln">
+</span><span class="com">// Create a thread to implement Runnable</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DisplayMessage</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Runnable</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">String</span><span class="pln"> message</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">DisplayMessage</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> message</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">message </span><span class="pun">=</span><span class="pln"> message</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">while</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">message</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// File Name : GuessANumber.java</span><span class="pln">
+</span><span class="com">// Create a thread to extentd Thread</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">GuessANumber</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">GuessANumber</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">number </span><span class="pun">=</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> counter </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">int</span><span class="pln"> guess </span><span class="pun">=</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+      </span><span class="kwd">do</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+          guess </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="kwd">int</span><span class="pun">)</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Math</span><span class="pun">.</span><span class="pln">random</span><span class="pun">()</span><span class="pln"> </span><span class="pun">*</span><span class="pln"> </span><span class="lit">100</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">);</span><span class="pln">
+          </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">()</span><span class="pln">
+                       </span><span class="pun">+</span><span class="pln"> </span><span class="str">" guesses "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> guess</span><span class="pun">);</span><span class="pln">
+          counter</span><span class="pun">++;</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">while</span><span class="pun">(</span><span class="pln">guess </span><span class="pun">!=</span><span class="pln"> number</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"** Correct! "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">this</span><span class="pun">.</span><span class="pln">getName</span><span class="pun">()</span><span class="pln">
+                       </span><span class="pun">+</span><span class="pln"> </span><span class="str">" in "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> counter </span><span class="pun">+</span><span class="pln"> </span><span class="str">" guesses.**"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// File Name : ThreadClassDemo.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ThreadClassDemo</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Runnable</span><span class="pln"> hello </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DisplayMessage</span><span class="pun">(</span><span class="str">"Hello"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> thread1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">(</span><span class="pln">hello</span><span class="pun">);</span><span class="pln">
+      thread1</span><span class="pun">.</span><span class="pln">setDaemon</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+      thread1</span><span class="pun">.</span><span class="pln">setName</span><span class="pun">(</span><span class="str">"hello"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting hello thread..."</span><span class="pun">);</span><span class="pln">
+      thread1</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      
+      </span><span class="typ">Runnable</span><span class="pln"> bye </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">DisplayMessage</span><span class="pun">(</span><span class="str">"Goodbye"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> thread2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">(</span><span class="pln">hello</span><span class="pun">);</span><span class="pln">
+      thread2</span><span class="pun">.</span><span class="pln">setPriority</span><span class="pun">(</span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">MIN_PRIORITY</span><span class="pun">);</span><span class="pln">
+      thread2</span><span class="pun">.</span><span class="pln">setDaemon</span><span class="pun">(</span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting goodbye thread..."</span><span class="pun">);</span><span class="pln">
+      thread2</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting thread3..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> thread3 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">GuessANumber</span><span class="pun">(</span><span class="lit">27</span><span class="pun">);</span><span class="pln">
+      thread3</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         thread3</span><span class="pun">.</span><span class="pln">join</span><span class="pun">();</span><span class="pln">
+      </span><span class="pun">}</span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Thread interrupted."</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting thread4..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> thread4 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">GuessANumber</span><span class="pun">(</span><span class="lit">75</span><span class="pun">);</span><span class="pln">
+      
+	  thread4</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"main() is ending..."</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>This would produce following result. You can try this example again and again and you would get different result every time.</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Starting</span><span class="pln"> hello thread</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Starting</span><span class="pln"> goodbye thread</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Thread</span><span class="pun">-</span><span class="lit">2</span><span class="pln"> guesses </span><span class="lit">27</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="pun">**</span><span class="pln"> </span><span class="typ">Correct</span><span class="pun">!</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">-</span><span class="lit">2</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> </span><span class="lit">102</span><span class="pln"> guesses</span><span class="pun">.**</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Starting</span><span class="pln"> thread4</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="typ">Hello</span><span class="pln">
+</span><span class="pun">..........</span><span class="pln">remaining result produced</span><span class="pun">.</span></pre>
+<h2>Major Thread Concepts:</h2>
+<p>While doing Multithreading programming, you would need to have following concepts very handy:</p>
+<ul class="list">
+<li><p><a href="http://www.tutorialspoint.com/java/java_thread_synchronization.htm">Thread Synchronization</a></p></li>
+<li><p><a href="http://www.tutorialspoint.com/java/java_thread_communication.htm">Interthread Communication</a></p></li>
+<li><p><a href="http://www.tutorialspoint.com/java/java_thread_deadlock.htm">Thread Deadlock</a></p></li>
+<li><p><a href="http://www.tutorialspoint.com/java/java_thread_control.htm">Thread Control: Suspend, Stop and Resume</a></p></li>
+</ul>
+<h2>Using Multithreading:</h2>
+<p>The key to utilizing multithreading support effectively is to think 
+concurrently rather than serially. For example, when you have two 
+subsystems within a program
+that can execute concurrently, make them individual threads.</p>
+<p>With the careful use of multithreading, you can create very efficient
+ programs. A word of caution is in order, however: If you create too 
+many threads, you can actually degrade the performance of your program 
+rather than enhance it.</p>
+<p>Remember, some overhead is associated with context switching. If you 
+create too many threads, more CPU time will be spent changing contexts 
+than executing your program!</p>
+<br>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_sending_email.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="pdf-btn">
+<a href="http://www.tutorialspoint.com/java/pdf/java_multithreading.pdf" alt="Java - Multithreading Programming Tutorial" target="_blank">PDF Version</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_applet_basics.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+</div>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text";
+google_ad_channel ="9030538898";
+google_color_border="ffffff";
+google_color_link="900b09";
+google_color_url="000000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/show_ads.html"></script>
+</div>
+</div><!-- middlecol -->
+<div id="rightcol">
+<!-- AddThis Button BEGIN -->
+<div class="addthis">
+<div class="addthis_toolbox addthis_default_style">
+<a href="#" title="Facebook" class="addthis_button_facebook at300b"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a href="#" title="Tweet" class="addthis_button_twitter at300b"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<script type="text/javascript">
+<!--
+ document.write('<a class="addthis_button_google_plusone" g:plusone:count="false"></a>');
+//-->
+</script><a class="addthis_button_google_plusone at300b" g:plusone:count="false"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/fastbutton.html" name="I0_1372926330636" id="I0_1372926330636" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></a>
+<a title="Linkedin" target="_blank" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=ra-4f661ec623a400f0&amp;source=tbx-300&amp;lng=en-US&amp;s=linkedin&amp;url=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_multithreading.htm&amp;title=Java%20-%20Multithreading%20Programming%20Tutorial&amp;ate=AT-ra-4f661ec623a400f0/-/-/51d5317a49c2a3f3/2&amp;frommenu=1&amp;uid=51d5317a0ddba3ea&amp;ct=1&amp;pre=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_applet_basics.htm&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_linkedin at300b"><span class="at16nc at300bs at15nc at15t_linkedin at16t_linkedin"><span class="at_a11y">Share on linkedin</span></span></a>
+<a href="#" title="Email" target="_blank" class="addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" class="addthis_button_compact at300m"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<div class="atclear"></div></div>
+<script type="text/javascript" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/addthis_widget.js"></script>
+</div>
+<!-- AddThis Button END -->
+<div class="localad">
+<a rel="nofollow" href="http://www.modernindianbabynames.com/" target="_blank" title="Modern Baby Names">Modern Baby Names</a>
+</div>
+<div class="localad">
+<a rel="nofollow" href="http://www.photofuntoos.com/" target="_blank" title="Online Photo Editing">Online Photo Editing</a>
+</div>
+<div class="rightgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Java%20-%20Multithreading%20Programming%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+</div><!-- rightcol -->
+<div style="clear:both;"></div>
+</div><!-- wrapper -->
+<div id="footer">
+<div class="wrapper">
+<div id="bottommenu">
+<a href="http://www.tutorialspoint.com/asp.net/index.htm" target="_top">ASP.NET </a> |
+<a href="http://www.tutorialspoint.com/jquery/index.htm" target="_top">jQuery </a> |
+<a href="http://www.tutorialspoint.com/ajax/index.htm" target="_top">AJAX </a> |
+<a href="http://www.tutorialspoint.com/ant/index.htm" target="_top">ANT</a> |
+<a href="http://www.tutorialspoint.com/jsp/index.htm" target="_top">JSP </a> |
+<a href="http://www.tutorialspoint.com/servlets/index.htm" target="_top">Servlets </a> |
+<a href="http://www.tutorialspoint.com/log4j/index.htm" target="_top">log4j </a> |
+<a href="http://www.tutorialspoint.com/ibatis/index.htm" target="_top">iBATIS </a> |
+<a href="http://www.tutorialspoint.com/hibernate/index.htm" target="_top">Hibernate </a> |
+<a href="http://www.tutorialspoint.com/jdbc/index.htm" target="_top">JDBC </a> |
+<a href="http://www.tutorialspoint.com/struts_2/index.htm" target="_top">Struts </a> |
+<a href="http://www.tutorialspoint.com/html5/index.htm" target="_top">HTML5 </a> |
+<a href="http://www.tutorialspoint.com/sql/index.htm" target="_top">SQL </a> |
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a> |
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a> |
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+</div>
+<div id="copyright">
+<p>Copyright © 2013 by tutorialspoint. All Rights Reserved.</p>
+</div>
+</div>
+</div>
+
+
+</body></html>

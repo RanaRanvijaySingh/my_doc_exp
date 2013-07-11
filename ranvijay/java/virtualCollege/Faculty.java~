@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////
+/*CREATIONAL DESIGN PATTERN : ABSTRACT FACTORY PATTERN*/
+////////////////////////////////////////////////////////
+class Faculty extends Person {
+    char faculty_id[]=new char[10];
+    Faculty()
+    {
+    //    System.out.println("faulty : constructor");
+        /*initialize all the parameteres*/
+    }
+    boolean checkFacultySchedule()
+    {
+        /*check if the particular faculty has his class today .*/
+        return true;
+        
+    }
+
+    
+}

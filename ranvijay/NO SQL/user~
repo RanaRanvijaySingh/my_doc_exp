@@ -1,0 +1,21 @@
+user1={
+	user_id : 'u1',
+	name : {fname: 'ranvijay',lname : 'singh'},
+	age 	: 22,
+	asses_id : ['a1','a2']
+
+	};
+user2={
+	user_id : 'u2',
+	name : {fname: 'aditya',lname : 'kamatar'},
+	age 	: 22,
+	asses_id : ['a1']
+
+	};
+user3={
+	user_id : 'u3',
+	name : {fname: 'goku',lname : 'warrior'},
+	age 	: 23,
+	asses_id : ['a3','a2']
+
+	};

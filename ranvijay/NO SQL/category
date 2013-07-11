@@ -1,0 +1,66 @@
+category1={
+	category_id : 'c1',
+	name : 'C',
+	asses_id : [ 'a1' , 'a3' ], 
+	questions: 	[{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 5		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 2		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 8		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 	
+					marks	: 5	
+					}]
+		
+};
+
+
+
+
+
+
+category2={
+	category_id : 'c2',
+	name : 'C++',
+	asses_id : [ 'a2' , 'a3' ], 
+	questions: [{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					}]
+		}
+};
+
+
+
+

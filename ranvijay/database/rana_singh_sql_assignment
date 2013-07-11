@@ -1,0 +1,399 @@
+create table user1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+fname VARCHAR(15) NOT NULL,
+lname VARCHAR(15) NOT NULL,
+emailid VARCHAR(40),
+age TINYINT(3) UNSIGNED NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+
+insert into user1 values(
+NULL,'rana','singh','rana.ranvijay@weboniselab.com',22,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'aditya','kamatar','adityak@weboniselab.com',22,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'anway','kumar','anwayk@weboniselab.com',23,NOW(),NOW());
+
+
+insert into user1 values(
+NULL,'rahul','singh','rahul_singh@gmail.com',22,NOW(),NOW());
+
+
+
+insert into user1 values(
+NULL,'rakesh','sinha','rakesh_sinha@yahoo.com',24,NOW(),NOW());
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+create table assesment1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(15) NOT NULL,
+passmarks TINYINT(3)  UNSIGNED  NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+insert into assesment1 values(
+NULL,'assesment1',100,NOW(),NOW());
+
+
+
+insert into assesment1 values(
+NULL,'assesment2',100,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment3',80,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment4',50,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment5',150,NOW(),NOW());
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+create table category1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(15) NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+
+insert into category1 values(
+NULL,'c',NOW(),NOW());
+
+insert into category1 values(
+NULL,'c++',NOW(),NOW());
+
+insert into category1 values(
+NULL,'javaselect',NOW(),NOW());
+
+insert into category1 values(
+NULL,'c#',NOW(),NOW());
+
+insert into category1 values(
+NULL,'DS',NOW(),NOW());
+
+insert into category1 values(
+NULL,'php',NOW(),NOW());
+
+insert into category1 values(
+NULL,'html',NOW(),NOW());
+
+insert into category1 values(
+NULL,'JS',NOW(),NOW());
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+create table questions1(
+id SMALLINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+category_id TINYINT UNSIGNED,
+question VARCHAR(100) NOT NULL,
+marks TINYINT(2) UNSIGNED  NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (category_id) REFERENCES category1(id)
+);
+
+
+
+
+
+insert into questions1 values(
+NULL,1,'what is the size of int in c?',5,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,3,'Which four options describe the correct default values for array elements of the types indicated? ',15,NOW(),NOW());
+
+insert into questions1 values(
+NULL,3,'Which one of these lists contains only Java programming language keywords?',15,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,2,'Which of the following type of class allows only one object of it to be created?',20,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,4,'Which of the following utilities can be used to compile managed assemblies into processor-specific native code?',20,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,6,'is php a scripting language?',25,NOW(),NOW());
+
+insert into questions1 values(
+NULL,5,'how to declare a structure?',5,NOW(),NOW());
+
+insert into questions1 values(
+NULL,7,'can we use css in same file as css or not ?',10,NOW(),NOW());
+
+insert into questions1 values(
+NULL,8,'syntax to change the containt of a DIV',25,NOW(),NOW());
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+create table user_assesment1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+user_id TINYINT UNSIGNED,
+assesment_id TINYINT UNSIGNED,
+marks TINYINT(3) UNSIGNED NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (user_id) REFERENCES user1(id),
+FOREIGN KEY (assesment_id) REFERENCES assesment1(id)
+);
+
+
+
+insert into user_assesment1 values(
+NULL,1,2,50,NOW(),NOW());
+
+
+insert into user_assesment1 values(
+NULL,1,3,100,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,3,50,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,4,80,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,1,130,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,3,5,160,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,200,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,4,4,70,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,2,110,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,90,NOW(),NOW());
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+create table assesment_questions1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+assesment_id TINYINT UNSIGNED,
+questions_id SMALLINT UNSIGNED,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id),
+FOREIGN KEY (assesment_id) REFERENCES assesment1(id)
+);
+
+
+
+
+
+insert into assesment_questions1 values(
+NULL,1,3,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,1,4,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,1,5,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,2,1,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,2,2,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,2,3,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,3,1,NOW(),NOW());
+
+
+insert into assesment_questions1 values(
+NULL,3,7,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,4,3,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,4,6,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,5,8,NOW(),NOW());
+
+insert into assesment_questions1 values(
+NULL,5,9,NOW(),NOW());
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+
+create table user_assesment_questions1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+user_id TINYINT UNSIGNED,
+assesment_id TINYINT UNSIGNED,
+questions_id SMALLINT UNSIGNED,
+options CHAR,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id),
+FOREIGN KEY (user_id) REFERENCES user1(id),
+FOREIGN KEY (assesment_id) REFERENCES assesment1(id)
+);
+
+
+
+insert into user_assesment1 values(
+NULL,1,2,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,1,3,100,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,3,50,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,4,80,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,1,130,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,3,5,160,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,200,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,4,4,70,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,2,110,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,90,NOW(),NOW());
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+create table options1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+questions_id SMALLINT UNSIGNED,
+options VARCHAR(60),
+answer TINYINT(1) UNSIGNED,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id)
+);
+
+
+
+//answer ="correct answer of the question"
+//wrong = "incorrect options of the questions"
+
+insert into options1 values(
+NULL,1,4,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,6,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,8,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,2,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'Answer',1,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'Answer',1,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,Answer,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,wrong,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,wrong,0,NOW(),NOW());
+
+
+/////////////////////////////////////////////////////////////////////////////////
+
+//list the assesment taken by a user.
+ 
+select user1.fname , user1.lname ,user_assesment1.id from user1,user_assesment1 where user1.id=user_assesment1.user_id ORDER BY user_id;
+
+
+//list the assesment taken by a particular user .... user.id=1
+select user1.fname , user1.lname ,user_assesment1.id from user1,user_assesment1 where user1.id=1 ORDER BY user_id;
+
+//list of users passing in the assesment
+select DISTINCT (user_id), assesment_id from user_assesment1,assesment1 where marks > passmarks ;
+
+
+//list of users failing in the assesment
+select DISTINCT (user_id), assesment_id from user_assesment1,assesment1 where marks < passmarks ;
+
+
+//give assignment id to find the passed users
+select fname from user1 where id IN (select user_id from user_assesment1,assesment1 where marks > passmarks and assesment1.id=1);
+
+
+//give assignment id to find the failed users
+select fname from user1 where id IN (select user_id from user_assesment1,assesment1 where marks < passmarks and assesment1.id=1);

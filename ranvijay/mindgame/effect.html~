@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js">
+</script>
+
+<script>
+
+ $(function() {
+   var image = [];
+   $.getJSON('image.json', function(data) {
+       $.each(data.image_data, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
+           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+</script>
+
+
+<script> 
+var i1=0 , i7 =0;
+var i2=0 , i4=0;
+var i3=0 , i5=0;
+var i6=0 , i8=0;
+var cc=0;
+function change(panel,image)
+{	
+	document.getElementById("msg").innerHtml="hello";	
+	if(image==1)i1++;
+	if(image==2)i2++;
+	if(image==3)i3++;
+	if(image==4)i4++;
+	if(image==5)i5++;
+	if(image==6)i6++;
+	if(image==7)i7++;
+	if(image==8)i8++;
+
+	if((i1==2 && i7==2)||(i1==4 && i7==4)||(i1==6 && i7==6)){document.getElementById("flip1").style.display="none";document.getElementById("flip7").style.display="none";}
+	if((i2==2 && i4==2)||(i2==4 && i4==4)||(i2==6 && i4==6)){document.getElementById("flip2").style.display="none";document.getElementById("flip4").style.display="none";}
+	if((i3==2 && i5==2)||(i3==4 && i5==4)||(i3==6 && i5==6)){document.getElementById("flip3").style.display="none";document.getElementById("flip5").style.display="none";}
+	if((i6==2 && i8==2)||(i6==4 && i8==4)||(i6==6 && i8==6)){document.getElementById("flip6").style.display="none";document.getElementById("flip8").style.display="none";}
+	
+	
+ $(document).ready(function(){
+  
+    	$(panel).slideDown("slow");
+		$(panel).slideUp("slow");
+ 	
+    });
+
+
+
+}
+</script>
+ 
+<style type="text/css"> 
+#panel,#flip
+{
+padding:2px;
+width : 100px;
+height : 100px;
+}
+#panel
+{
+padding:2px;
+
+}
+.tf
+{
+	height : 100px;
+	width : 100px;
+}
+.tablepos
+{
+	margin-top:200px;
+	margin-left:600px;
+}
+
+</style>
+</head>
+<body>
+	<table class="tablepos">
+		<tr>
+			<td><div id="flip1" onClick="change(panel,1)" class="tf"><img src="box.png" /></div><div id="panel"><img src="r1.png"/></div></td>
+			<td><div id="flip2" onClick="change(panel1,2)" class="tf"><img src="box.png" /></div><div id="panel1"><img src="r6.png"/></div></td>
+			<td><div id="flip3" onClick="change(panel2,3)" class="tf"><img src="box.png" /></div><div id="panel2"><img src="r9.jpeg"/></div></td>
+			<td><div id="flip4" onClick="change(panel3,4)" class="tf"> <img src="box.png" /></div><div id="panel3"><img src="r6.png"/></div></td>
+		</tr>
+		<tr>
+			<td><div id="flip5" onClick="change(panel4,5)" class="tf"><img src="box.png" /></div><div id="panel4"><img src="r9.jpeg"/></div></td>
+			<td><div id="flip6" onClick="change(panel5,6)" class="tf"><img src="box.png" /></div><div id="panel5"><img src="r4.jpeg"/></div></td>
+			<td><div id="flip7" onClick="change(panel6,7)" class="tf"><img src="box.png" /></div><div id="panel6"><img src="r1.png"/></div></td>
+			<td><div id="flip8" onClick="change(panel7,8)" class="tf"><img src="box.png" /></div><div id="panel7"><img src="r4.jpeg"/></div></td>
+		</tr>
+	</table>
+	<div id="msg">hi</div>
+
+	
+</body>
+</html>
+

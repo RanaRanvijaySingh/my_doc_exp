@@ -1,0 +1,45 @@
+//find all the user giving assessment [1/2/3];
+db.user.find({asses_id : 'a1'});
+//simillarly for assessment 2 and 3
+db.user.find({asses_id : 'a2'});
+db.user.find({asses_id : 'a3'});
+
+
+
+
+// find the assement given by one user [1/2/3]
+db.assessment.find({ user_id : 'u1'  });
+//simillarly to find for user 2 and 3
+db.assessment.find({ user_id : 'u2'  });
+db.assessment.find({ user_id : 'u3'  });
+
+
+//get all the question in a particular assessment [a1,a2,a3]
+var myCursor1=db.user.find();
+printjson(myCursor1);
+//for a2
+var myCursor2=db.user.find();
+printjson(myCursor2);
+//for a3
+var myCursor3=db.user.find();
+printjson(myCursor3);
+
+
+
+
+
+db.category.find({ asses_id : 'a1' });
+
+var myCursor1=db.user.find();
+printjson(myCursor1);
+
+var myCursor = db.category.find({ asses_id : 'a1' });
+myCursor.forEach(printjson);
+
+var myCursor = db.inventory.find(  );
+var myDocument = myCursor.hasNext() ? myCursor.next() : null;
+
+if (myDocument) {
+    var myItem = myDocument.item;
+    printjson(myItem);
+}

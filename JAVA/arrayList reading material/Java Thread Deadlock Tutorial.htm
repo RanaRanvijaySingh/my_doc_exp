@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" src="Java%20Thread%20Deadlock%20Tutorial_files/cbgapi.loaded_0"></script><script src="Java%20Thread%20Deadlock%20Tutorial_files/auth013.js" type="text/javascript"></script><script gapi_processed="true" src="Java%20Thread%20Deadlock%20Tutorial_files/plusone.js" type="text/javascript"></script><link media="all" href="Java%20Thread%20Deadlock%20Tutorial_files/widget115.css" type="text/css" rel="stylesheet">
+<meta charset="utf-8">
+<title>Java Thread Deadlock Tutorial</title>
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="Java Thread Deadlock Tutorial - Learning Java in simple and easy steps : A beginner's tutorial containing complete knowledge of Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<meta name="Keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<!-- base href="http://www.tutorialspoint.com/" -->
+<link rel="stylesheet" type="text/css" href="Java%20Thread%20Deadlock%20Tutorial_files/style.css">
+<link rel="stylesheet" type="text/css" href="Java%20Thread%20Deadlock%20Tutorial_files/prettify.css">
+<script type="text/javascript" src="Java%20Thread%20Deadlock%20Tutorial_files/prettify.js"></script>
+<style media="screen" type="text/css">
+/* Java Scheme */
+#header{ 
+background:#F3943D !important;
+}
+#topmenu
+{
+background-color:#5382A1 !important;
+}
+#leftcol ul.menu li.heading 
+{
+background:#F3943D !important;
+border:1px solid #964800 !important;
+}
+#leftcol, #middlecol, #rightcol {min-height:1520px; padding:0px;}
+</style>
+<script src="Java%20Thread%20Deadlock%20Tutorial_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+</script>
+<div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Java%20Thread%20Deadlock%20Tutorial_files/sh122.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh11"></iframe></div><script src="Java%20Thread%20Deadlock%20Tutorial_files/core084.js" type="text/javascript"></script></head>
+<body onload="prettyPrint()">
+<div id="header">
+<div class="wrapper">
+<h1 class="logo"><a href="http://www.tutorialspoint.com/index.htm">Tutorials Point - Simply Easy Learning</a></h1>
+<div id="search">
+<form method="get" id="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+<input name="sitesearch" value="www.tutorialspoint.com" type="hidden">
+<input name="as_q" id="s" value="Search this site..." onfocus="if (this.value == 'Search this site...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this site...';}" type="text">
+<input value="FORID:11" name="cof" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input class="submit btn" src="Java%20Thread%20Deadlock%20Tutorial_files/icon-search.png" alt="Go" type="image">
+</form>
+</div>
+</div>
+</div>
+<div id="topmenu">
+<div class="wrapper">
+<div id="left">
+<a href="http://www.tutorialspoint.com/index.htm" target="_top">HOME </a>
+<a href="http://www.tutorialspoint.com/java/index.htm" target="_top">JAVA </a>
+<a href="http://www.tutorialspoint.com/php/index.htm" target="_top">PHP </a>
+<a href="http://www.tutorialspoint.com/python/index.htm" target="_top">Python </a>
+<a href="http://www.tutorialspoint.com/ruby/index.htm" target="_top">Ruby </a>
+<a href="http://www.tutorialspoint.com/perl/index.htm" target="_top">Perl </a>
+<a href="http://www.tutorialspoint.com/html/index.htm" target="_top">HTML </a>
+<a href="http://www.tutorialspoint.com/css/index.htm" target="_top">CSS </a>
+<a href="http://www.tutorialspoint.com/javascript/index.htm" target="_top">Javascript </a>
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a>
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a>
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+<a href="http://www.tutorialspoint.com/more.htm" target="_top">MORE...</a>
+</div>
+<div id="right">
+<a href="http://www.tutorialspoint.com/references.htm" target="_top">REFERENCES</a> |
+<a href="http://www.tutorialspoint.com/forums/index.php" target="_top">FORUM</a> |
+<a href="http://www.tutorialspoint.com/about/index.htm" target="_top">ABOUT</a> |
+<a href="http://www.tutorialspoint.com/about/contact_us.htm" target="_top">CONTACT</a>
+</div>
+</div>
+</div>
+<div class="wrapper">
+<div id="leftcol">
+<div class="mini-logo">
+<img src="Java%20Thread%20Deadlock%20Tutorial_files/java-mini-logo.png" alt="Java Tutorial">
+</div>
+<ul class="menu">
+<li class="heading">Java Basics</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/index.htm">Java - Home</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overview.htm">Java - Overview</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_environment_setup.htm">Java - Environment Setup</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_syntax.htm">Java - Basic Syntax</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_object_classes.htm">Java - Object &amp; Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_datatypes.htm">Java - Basic Datatypes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_variable_types.htm">Java - Variable Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_modifier_types.htm">Java - Modifier Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_operators.htm">Java - Basic Operators</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_loop_control.htm">Java - Loop Control</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_decision_making.htm">Java - Decision Making</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_numbers.htm">Java - Numbers</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_characters.htm">Java - Characters</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_strings.htm">Java - Strings</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_arrays.htm">Java - Arrays</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_date_time.htm">Java - Date &amp; Time</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_regular_expressions.htm">Java - Regular Expressions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_methods.htm">Java - Methods</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_files_io.htm">Java - Files and I/O</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_exceptions.htm">Java - Exceptions</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Object Oriented</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_inheritance.htm">Java - Inheritance</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overriding.htm">Java - Overriding</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_polymorphism.htm">Java - Polymorphism</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_abstraction.htm">Java - Abstraction</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_encapsulation.htm">Java - Encapsulation</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_interfaces.htm">Java - Interfaces</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_packages.htm">Java - Packages</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Advanced</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_data_structures.htm">Java - Data Structures</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_collections.htm">Java - Collections</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_generics.htm">Java - Generics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_serialization.htm">Java - Serialization</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_networking.htm">Java - Networking</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_sending_email.htm">Java - Sending Email</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_multithreading.htm"><b>Java - Multithreading</b></a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_applet_basics.htm">Java - Applet Basics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_documentation.htm">Java - Documentation</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Useful Resources</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_quick_guide.htm">Java - Quick Guide</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_library_classes.htm">Java - Library Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_useful_resources.htm">Java Useful Resources</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/javaexamples/index.htm">Java - Examples</a></li>
+</ul>
+<ul class="menu">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</div><!-- leftcol -->
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java - Thread Deadlock</h1>
+<div class="topgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="Java%20Thread%20Deadlock%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_multithreading.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_multithreading.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>A special type of error that you need to avoid that relates 
+specifically to multitasking is deadlock, which occurs when two threads 
+have a circular dependency on a pair of synchronized objects.</p>
+<p>For example, suppose one thread enters the monitor on object X and 
+another thread enters the monitor on object Y. If the thread in X tries 
+to call any synchronized method on Y, it will block as expected. 
+However, if the thread in Y, in turn, tries to call any synchronized 
+method on X, the thread waits forever, because to access X, it would 
+have to release its own lock on Y so that the first thread could 
+complete.</p>
+<h2>Example:</h2>
+<p>To understand deadlock fully, it is useful to see it in action. The 
+next example creates two classes, A and B, with methods foo( ) and bar( 
+), respectively, which pause briefly before trying to call a method in 
+the other class.</p>
+<p>The main class, named Deadlock, creates an A and a B instance, and 
+then starts a second thread to set up the deadlock condition. The foo( )
+ and bar( ) methods use sleep( ) as a way to force the deadlock 
+condition to occur.</p>
+<pre style="" class="prettyprint prettyprinted"><span class="kwd">class</span><span class="pln"> A </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">synchronized</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> foo</span><span class="pun">(</span><span class="pln">B b</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">currentThread</span><span class="pun">().</span><span class="pln">getName</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" entered A.foo"</span><span class="pun">);</span><span class="pln"> 
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"A Interrupted"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" trying to call B.last()"</span><span class="pun">);</span><span class="pln">
+      b</span><span class="pun">.</span><span class="kwd">last</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">synchronized</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">last</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Inside A.last"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">class</span><span class="pln"> B </span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">synchronized</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> bar</span><span class="pun">(</span><span class="pln">A a</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">String</span><span class="pln"> name </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">currentThread</span><span class="pun">().</span><span class="pln">getName</span><span class="pun">();</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" entered B.bar"</span><span class="pun">);</span><span class="pln">
+      </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">1000</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">Exception</span><span class="pln"> e</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+         </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"B Interrupted"</span><span class="pun">);</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">name </span><span class="pun">+</span><span class="pln"> </span><span class="str">" trying to call A.last()"</span><span class="pun">);</span><span class="pln">
+      a</span><span class="pun">.</span><span class="kwd">last</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">synchronized</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> </span><span class="kwd">last</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Inside A.last"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Deadlock</span><span class="pln"> </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">Runnable</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+   A a </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> A</span><span class="pun">();</span><span class="pln">
+   B b </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> B</span><span class="pun">();</span><span class="pln">
+   </span><span class="typ">Deadlock</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">currentThread</span><span class="pun">().</span><span class="pln">setName</span><span class="pun">(</span><span class="str">"MainThread"</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Thread</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">,</span><span class="pln"> </span><span class="str">"RacingThread"</span><span class="pun">);</span><span class="pln">
+      t</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      a</span><span class="pun">.</span><span class="pln">foo</span><span class="pun">(</span><span class="pln">b</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get lock on a in this thread.</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Back in main thread"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      b</span><span class="pun">.</span><span class="pln">bar</span><span class="pun">(</span><span class="pln">a</span><span class="pun">);</span><span class="pln"> </span><span class="com">// get lock on b in other thread.</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Back in other thread"</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> args</span><span class="pun">[])</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">Deadlock</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>Here is some output from this program:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">MainThread</span><span class="pln"> entered A</span><span class="pun">.</span><span class="pln">foo
+</span><span class="typ">RacingThread</span><span class="pln"> entered B</span><span class="pun">.</span><span class="pln">bar
+</span><span class="typ">MainThread</span><span class="pln"> trying to call B</span><span class="pun">.</span><span class="kwd">last</span><span class="pun">()</span><span class="pln">
+</span><span class="typ">RacingThread</span><span class="pln"> trying to call A</span><span class="pun">.</span><span class="kwd">last</span><span class="pun">()</span></pre>
+<p>Because the program has deadlocked, you need to press CTRL-C to end 
+the program. You can see a full thread and monitor cache dump by 
+pressing CTRL-BREAK on a PC .</p>
+<p>You will see that RacingThread owns the monitor on <b>b</b>, while it is waiting for the monitor on <b>a</b>. At the same time, MainThread owns <b>a</b> and is waiting to get <b>b</b>. This program will never complete.</p>
+<p>As this example illustrates, if your multithreaded program locks up 
+occasionally, deadlock is one of the first conditions that you should 
+check for.</p>
+<h2>Ordering Locks:</h2>
+<p>Acommon threading trick to avoid the deadlock is to order the locks. 
+By ordering the locks, it gives threads a specific order to obtain 
+multiple locks.</p>
+<h2>Deadlock Example:</h2>
+<p>Following is the depiction of a dead lock:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="com">// File Name ThreadSafeBankAccount.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> initialBalance</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      balance </span><span class="pun">=</span><span class="pln"> initialBalance</span><span class="pun">;</span><span class="pln">
+      number </span><span class="pun">=</span><span class="pln"> num</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getNumber</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getBalance</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> deposit</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">double</span><span class="pln"> prevBalance </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">try</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+           </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">4000</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">{}</span><span class="pln">
+        balance </span><span class="pun">=</span><span class="pln"> prevBalance </span><span class="pun">+</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> withdraw</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+	     </span><span class="kwd">double</span><span class="pln"> prevBalance </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+         </span><span class="kwd">try</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">4000</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">{}</span><span class="pln">
+         balance </span><span class="pun">=</span><span class="pln"> prevBalance </span><span class="pun">-</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// File Name LazyTeller.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">LazyTeller</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> source</span><span class="pun">,</span><span class="pln"> dest</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">LazyTeller</span><span class="pun">(</span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> 
+                     </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> b</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      source </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+      dest </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      transfer</span><span class="pun">(</span><span class="lit">250.00</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> transfer</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Transferring from "</span><span class="pln">
+          </span><span class="pun">+</span><span class="pln"> source</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">()</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="str">" to "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> dest</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+      </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="pln">source</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+          </span><span class="typ">Thread</span><span class="pun">.</span><span class="kwd">yield</span><span class="pun">();</span><span class="pln">
+          </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="pln">dest</span><span class="pun">)</span><span class="pln">
+          </span><span class="pun">{</span><span class="pln">
+             </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Withdrawing from "</span><span class="pln">
+                     </span><span class="pun">+</span><span class="pln"> source</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+             source</span><span class="pun">.</span><span class="pln">withdraw</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">);</span><span class="pln">
+             </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Depositing into "</span><span class="pln">
+                     </span><span class="pun">+</span><span class="pln"> dest</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+             dest</span><span class="pun">.</span><span class="pln">deposit</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">);</span><span class="pln">
+          </span><span class="pun">}</span><span class="pln">
+       </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DeadlockDemo</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Creating two bank accounts..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> checking </span><span class="pun">=</span><span class="pln">
+                    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000.00</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> savings </span><span class="pun">=</span><span class="pln">
+                    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="lit">102</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5000.00</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Creating two teller threads..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> teller1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">LazyTeller</span><span class="pun">(</span><span class="pln">checking</span><span class="pun">,</span><span class="pln"> savings</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> teller2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">LazyTeller</span><span class="pun">(</span><span class="pln">savings</span><span class="pun">,</span><span class="pln"> checking</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting both threads..."</span><span class="pun">);</span><span class="pln">
+      teller1</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      teller2</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>This would produce following result:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Creating</span><span class="pln"> two bank accounts</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Creating</span><span class="pln"> two teller threads</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Starting</span><span class="pln"> both threads</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Transferring</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">101</span><span class="pln"> to </span><span class="lit">102</span><span class="pln">
+</span><span class="typ">Transferring</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">102</span><span class="pln"> to </span><span class="lit">101</span></pre>
+<p>The problem with the LazyTeller class is that it does not consider 
+the possibility of a race condition, a common occurrence in 
+multithreaded programming.</p>
+<p>After the two threads are started, teller1 grabs the checking lock 
+and teller2 grabs the savings lock. When teller1 tries to obtain the 
+savings lock, it is not available. Therefore, teller1 blocks until the 
+savings lock becomes available. When the teller1 thread blocks, teller1 
+still has the checking lock and does not let it go.</p>
+<p>Similarly, teller2 is waiting for the checking lock, so teller2 
+blocks but does not let go of the savings lock. This leads to one 
+result: deadlock!</p>
+<h2>Deadlock Solution Example:</h2>
+<p>Here transfer() method, in a class named OrderedTeller,  in stead of 
+arbitrarily synchronizing on locks, this transfer() method obtains locks
+ in a specified order based on the number of the bank account.</p>
+<pre style="" class="prettyprint prettyprinted"><span class="com">// File Name ThreadSafeBankAccount.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="kwd">int</span><span class="pln"> num</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> initialBalance</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      balance </span><span class="pun">=</span><span class="pln"> initialBalance</span><span class="pun">;</span><span class="pln">
+      number </span><span class="pun">=</span><span class="pln"> num</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">int</span><span class="pln"> getNumber</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> number</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getBalance</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">return</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> deposit</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+        </span><span class="kwd">double</span><span class="pln"> prevBalance </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+        </span><span class="kwd">try</span><span class="pln">
+        </span><span class="pun">{</span><span class="pln">
+           </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">4000</span><span class="pun">);</span><span class="pln">
+        </span><span class="pun">}</span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+        </span><span class="pun">{}</span><span class="pln">
+        balance </span><span class="pun">=</span><span class="pln"> prevBalance </span><span class="pun">+</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> withdraw</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="kwd">this</span><span class="pun">)</span><span class="pln">
+      </span><span class="pun">{</span><span class="pln">
+	     </span><span class="kwd">double</span><span class="pln"> prevBalance </span><span class="pun">=</span><span class="pln"> balance</span><span class="pun">;</span><span class="pln">
+         </span><span class="kwd">try</span><span class="pln">
+         </span><span class="pun">{</span><span class="pln">
+            </span><span class="typ">Thread</span><span class="pun">.</span><span class="pln">sleep</span><span class="pun">(</span><span class="lit">4000</span><span class="pun">);</span><span class="pln">
+         </span><span class="pun">}</span><span class="kwd">catch</span><span class="pun">(</span><span class="typ">InterruptedException</span><span class="pln"> e</span><span class="pun">)</span><span class="pln">
+         </span><span class="pun">{}</span><span class="pln">
+         balance </span><span class="pun">=</span><span class="pln"> prevBalance </span><span class="pun">-</span><span class="pln"> amount</span><span class="pun">;</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+</span><span class="com">// File Name OrderedTeller.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">OrderedTeller</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Thread</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">private</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> source</span><span class="pun">,</span><span class="pln"> dest</span><span class="pun">;</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="typ">OrderedTeller</span><span class="pun">(</span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> a</span><span class="pun">,</span><span class="pln">
+                        </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> b</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      source </span><span class="pun">=</span><span class="pln"> a</span><span class="pun">;</span><span class="pln">
+      dest </span><span class="pun">=</span><span class="pln"> b</span><span class="pun">;</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> run</span><span class="pun">()</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      transfer</span><span class="pun">(</span><span class="lit">250.00</span><span class="pun">);</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> transfer</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> amount</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+       </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Transferring from "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> source</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">()</span><span class="pln">
+           </span><span class="pun">+</span><span class="pln"> </span><span class="str">" to "</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> dest</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+       </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> first</span><span class="pun">,</span><span class="pln"> second</span><span class="pun">;</span><span class="pln">
+       </span><span class="kwd">if</span><span class="pun">(</span><span class="pln">source</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">()</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> dest</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">())</span><span class="pln">
+       </span><span class="pun">{</span><span class="pln">
+          first </span><span class="pun">=</span><span class="pln"> source</span><span class="pun">;</span><span class="pln">
+          second </span><span class="pun">=</span><span class="pln"> dest</span><span class="pun">;</span><span class="pln">
+       </span><span class="pun">}</span><span class="pln">
+       </span><span class="kwd">else</span><span class="pln">
+       </span><span class="pun">{</span><span class="pln">
+          first </span><span class="pun">=</span><span class="pln"> dest</span><span class="pun">;</span><span class="pln"> 
+          second </span><span class="pun">=</span><span class="pln"> source</span><span class="pun">;</span><span class="pln">
+       </span><span class="pun">}</span><span class="pln">
+       </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="pln">first</span><span class="pun">)</span><span class="pln">
+       </span><span class="pun">{</span><span class="pln">
+          </span><span class="typ">Thread</span><span class="pun">.</span><span class="kwd">yield</span><span class="pun">();</span><span class="pln">
+          </span><span class="kwd">synchronized</span><span class="pun">(</span><span class="pln">second</span><span class="pun">)</span><span class="pln">
+          </span><span class="pun">{</span><span class="pln">
+             </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Withdrawing from "</span><span class="pln">
+                         </span><span class="pun">+</span><span class="pln"> source</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+             source</span><span class="pun">.</span><span class="pln">withdraw</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">);</span><span class="pln">
+             </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Depositing into "</span><span class="pln">
+                         </span><span class="pun">+</span><span class="pln"> dest</span><span class="pun">.</span><span class="pln">getNumber</span><span class="pun">());</span><span class="pln">
+             dest</span><span class="pun">.</span><span class="pln">deposit</span><span class="pun">(</span><span class="pln">amount</span><span class="pun">);</span><span class="pln">
+          </span><span class="pun">}</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com">// File Name DeadlockDemo.java</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">DeadlockDemo</span><span class="pln">
+</span><span class="pun">{</span><span class="pln">
+   </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">static</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> main</span><span class="pun">(</span><span class="typ">String</span><span class="pln"> </span><span class="pun">[]</span><span class="pln"> args</span><span class="pun">)</span><span class="pln">
+   </span><span class="pun">{</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Creating two bank accounts..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> checking </span><span class="pun">=</span><span class="pln">
+                    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="lit">101</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1000.00</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">ThreadSafeBankAccount</span><span class="pln"> savings </span><span class="pun">=</span><span class="pln">
+                    </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ThreadSafeBankAccount</span><span class="pun">(</span><span class="lit">102</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5000.00</span><span class="pun">);</span><span class="pln">
+
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Creating two teller threads..."</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> teller1 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">OrderedTeller</span><span class="pun">(</span><span class="pln">checking</span><span class="pun">,</span><span class="pln"> savings</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">Thread</span><span class="pln"> teller2 </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">OrderedTeller</span><span class="pun">(</span><span class="pln">savings</span><span class="pun">,</span><span class="pln"> checking</span><span class="pun">);</span><span class="pln">
+      </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="str">"Starting both threads..."</span><span class="pun">);</span><span class="pln">
+      teller1</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+      teller2</span><span class="pun">.</span><span class="pln">start</span><span class="pun">();</span><span class="pln">
+   </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></pre>
+<p>This would remove deadlock problem and would produce following result:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">Creating</span><span class="pln"> two bank accounts</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Creating</span><span class="pln"> two teller threads</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Starting</span><span class="pln"> both threads</span><span class="pun">...</span><span class="pln">
+</span><span class="typ">Transferring</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">101</span><span class="pln"> to </span><span class="lit">102</span><span class="pln">
+</span><span class="typ">Transferring</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">102</span><span class="pln"> to </span><span class="lit">101</span><span class="pln">
+</span><span class="typ">Withdrawing</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">101</span><span class="pln">
+</span><span class="typ">Depositing</span><span class="pln"> </span><span class="kwd">into</span><span class="pln"> </span><span class="lit">102</span><span class="pln">
+</span><span class="typ">Withdrawing</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> </span><span class="lit">102</span><span class="pln">
+</span><span class="typ">Depositing</span><span class="pln"> </span><span class="kwd">into</span><span class="pln"> </span><span class="lit">101</span></pre>
+<br>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_multithreading.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="pdf-btn">
+<a href="http://www.tutorialspoint.com/java/pdf/java_thread_deadlock.pdf" alt="Java Thread Deadlock Tutorial" target="_blank">PDF Version</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_multithreading.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+</div>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text";
+google_ad_channel ="9030538898";
+google_color_border="ffffff";
+google_color_link="900b09";
+google_color_url="000000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java%20Thread%20Deadlock%20Tutorial_files/show_ads.html"></script>
+</div>
+</div><!-- middlecol -->
+<div id="rightcol">
+<!-- AddThis Button BEGIN -->
+<div class="addthis">
+<div class="addthis_toolbox addthis_default_style">
+<a href="#" title="Facebook" class="addthis_button_facebook at300b"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a href="#" title="Tweet" class="addthis_button_twitter at300b"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<script type="text/javascript">
+<!--
+ document.write('<a class="addthis_button_google_plusone" g:plusone:count="false"></a>');
+//-->
+</script><a class="addthis_button_google_plusone at300b" g:plusone:count="false"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Java%20Thread%20Deadlock%20Tutorial_files/fastbutton.html" name="I0_1372926343338" id="I0_1372926343338" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></a>
+<a title="Linkedin" target="_blank" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=ra-4f661ec623a400f0&amp;source=tbx-300&amp;lng=en-US&amp;s=linkedin&amp;url=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_thread_deadlock.htm&amp;title=Java%20Thread%20Deadlock%20Tutorial&amp;ate=AT-ra-4f661ec623a400f0/-/-/51d53187620b2186/2&amp;frommenu=1&amp;uid=51d531876461f946&amp;ct=1&amp;pre=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_multithreading.htm&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_linkedin at300b"><span class="at16nc at300bs at15nc at15t_linkedin at16t_linkedin"><span class="at_a11y">Share on linkedin</span></span></a>
+<a href="#" title="Email" target="_blank" class="addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" class="addthis_button_compact at300m"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<div class="atclear"></div></div>
+<script type="text/javascript" src="Java%20Thread%20Deadlock%20Tutorial_files/addthis_widget.js"></script>
+</div>
+<!-- AddThis Button END -->
+<div class="localad">
+<a rel="nofollow" href="http://www.modernindianbabynames.com/" target="_blank" title="Modern Baby Names">Modern Baby Names</a>
+</div>
+<div class="localad">
+<a rel="nofollow" href="http://www.photofuntoos.com/" target="_blank" title="Online Photo Editing">Online Photo Editing</a>
+</div>
+<div class="rightgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Java%20Thread%20Deadlock%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+</div><!-- rightcol -->
+<div style="clear:both;"></div>
+</div><!-- wrapper -->
+<div id="footer">
+<div class="wrapper">
+<div id="bottommenu">
+<a href="http://www.tutorialspoint.com/asp.net/index.htm" target="_top">ASP.NET </a> |
+<a href="http://www.tutorialspoint.com/jquery/index.htm" target="_top">jQuery </a> |
+<a href="http://www.tutorialspoint.com/ajax/index.htm" target="_top">AJAX </a> |
+<a href="http://www.tutorialspoint.com/ant/index.htm" target="_top">ANT</a> |
+<a href="http://www.tutorialspoint.com/jsp/index.htm" target="_top">JSP </a> |
+<a href="http://www.tutorialspoint.com/servlets/index.htm" target="_top">Servlets </a> |
+<a href="http://www.tutorialspoint.com/log4j/index.htm" target="_top">log4j </a> |
+<a href="http://www.tutorialspoint.com/ibatis/index.htm" target="_top">iBATIS </a> |
+<a href="http://www.tutorialspoint.com/hibernate/index.htm" target="_top">Hibernate </a> |
+<a href="http://www.tutorialspoint.com/jdbc/index.htm" target="_top">JDBC </a> |
+<a href="http://www.tutorialspoint.com/struts_2/index.htm" target="_top">Struts </a> |
+<a href="http://www.tutorialspoint.com/html5/index.htm" target="_top">HTML5 </a> |
+<a href="http://www.tutorialspoint.com/sql/index.htm" target="_top">SQL </a> |
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a> |
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a> |
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+</div>
+<div id="copyright">
+<p>Copyright © 2013 by tutorialspoint. All Rights Reserved.</p>
+</div>
+</div>
+</div>
+
+
+</body></html>

@@ -1,0 +1,20 @@
+impoort java.io.*;
+interface polygon
+{
+	void getSumOfInnerAngle();
+	long getArea();
+}
+class Triangle
+{
+	private int sides;
+	public void getSide(int noOfSide)
+	{
+		this.sides=noOfSide;
+	}
+	void getSumOfInnerAngle()
+	{
+		long sum=180*(sides-2);
+		System.out.println("For Triangle :" +sum);
+	}
+	
+}

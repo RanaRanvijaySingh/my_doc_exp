@@ -1,0 +1,46 @@
+create table user_assesment_questions1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+user_id TINYINT UNSIGNED,
+assesment_id TINYINT UNSIGNED,
+questions_id SMALLINT UNSIGNED,
+options CHAR,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id),
+FOREIGN KEY (user_id) REFERENCES user1(id),
+FOREIGN KEY (assesment_id) REFERENCES assesment1(id)
+);
+
+
+
+insert into user_assesment1 values(
+NULL,1,2,50,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,1,3,100,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,3,50,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,4,80,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,2,1,130,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,3,5,160,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,200,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,4,4,70,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,2,110,NOW(),NOW());
+
+insert into user_assesment1 values(
+NULL,5,3,90,NOW(),NOW());
+

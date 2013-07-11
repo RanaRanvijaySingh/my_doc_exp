@@ -1,0 +1,45 @@
+create table questions1(
+id SMALLINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+category_id TINYINT UNSIGNED,
+question VARCHAR(100) NOT NULL,
+marks TINYINT(2) UNSIGNED  NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (category_id) REFERENCES category1(id)
+);
+
+
+
+
+
+insert into questions1 values(
+NULL,1,'what is the size of int in c?',5,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,3,'Which four options describe the correct default values for array elements of the types indicated? ',5,NOW(),NOW());
+
+insert into questions1 values(
+NULL,3,'Which one of these lists contains only Java programming language keywords?',5,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,2,'Which of the following type of class allows only one object of it to be created?',5,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,4,'Which of the following utilities can be used to compile managed assemblies into processor-specific native code?',5,NOW(),NOW());
+
+
+insert into questions1 values(
+NULL,6,'is php a scripting language?',5,NOW(),NOW());
+
+insert into questions1 values(
+NULL,5,'how to declare a structure?',5,NOW(),NOW());
+
+insert into questions1 values(
+NULL,7,'can we use css in same file as css or not ?',5,NOW(),NOW());
+
+insert into questions1 values(
+NULL,8,'syntax to change the containt of a DIV',5,NOW(),NOW());

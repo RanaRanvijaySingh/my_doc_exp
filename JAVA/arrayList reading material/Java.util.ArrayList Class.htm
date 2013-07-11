@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" src="Java.util.ArrayList%20Class_files/cbgapi.loaded_0"></script><script src="Java.util.ArrayList%20Class_files/auth013.js" type="text/javascript"></script><script gapi_processed="true" src="Java.util.ArrayList%20Class_files/plusone.js" type="text/javascript"></script><link media="all" href="Java.util.ArrayList%20Class_files/widget115.css" type="text/css" rel="stylesheet">
+<meta charset="utf-8">
+<title>Java.util.ArrayList Class</title>
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="Java.util.ArrayList class methods - All the classes, interfaces, enumrations and exceptions have been explained with examples for beginners to advanced java programmers.">
+<meta name="keywords" content="Java, util, packages, tutorial, classes, interfaces, enumrations, exceptions, examples, beginners, advanced, programmers">
+<!-- base href="http://www.tutorialspoint.com/" -->
+<link rel="stylesheet" type="text/css" href="Java.util.ArrayList%20Class_files/style.css">
+<link rel="stylesheet" type="text/css" href="Java.util.ArrayList%20Class_files/prettify.css">
+<script type="text/javascript" src="Java.util.ArrayList%20Class_files/prettify.js"></script>
+<style media="screen" type="text/css">
+/* Java Util Scheme */
+#header{ 
+   background:#F3943D !important;
+}
+#topmenu
+{
+   background-color:#5382A1 !important;
+}
+#leftcol ul.menu li.heading 
+{
+   background:#F3943D !important;
+   border:1px solid #964800 !important;
+}
+#leftcol, #middlecol, #rightcol {min-height:1500px; padding:0px;}
+</style>
+<script src="Java.util.ArrayList%20Class_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+</script>
+<div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Java.util.ArrayList%20Class_files/sh121.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh427"></iframe></div><script src="Java.util.ArrayList%20Class_files/core083.js" type="text/javascript"></script></head>
+<body onload="prettyPrint()">
+<div id="header">
+<div class="wrapper">
+<h1 class="logo"><a href="http://www.tutorialspoint.com/index.htm">Tutorials Point - Simply Easy Learning</a></h1>
+<div id="search">
+<form method="get" id="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+<input name="sitesearch" value="www.tutorialspoint.com" type="hidden">
+<input name="as_q" id="s" value="Search this site..." onfocus="if (this.value == 'Search this site...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this site...';}" type="text">
+<input value="FORID:11" name="cof" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input class="submit btn" src="Java.util.ArrayList%20Class_files/icon-search.png" alt="Go" type="image">
+</form>
+</div>
+</div>
+</div>
+<div id="topmenu">
+<div class="wrapper">
+<div id="left">
+<a href="http://www.tutorialspoint.com/index.htm" target="_top">HOME </a>
+<a href="http://www.tutorialspoint.com/java/index.htm" target="_top">JAVA </a>
+<a href="http://www.tutorialspoint.com/php/index.htm" target="_top">PHP </a>
+<a href="http://www.tutorialspoint.com/python/index.htm" target="_top">Python </a>
+<a href="http://www.tutorialspoint.com/ruby/index.htm" target="_top">Ruby </a>
+<a href="http://www.tutorialspoint.com/perl/index.htm" target="_top">Perl </a>
+<a href="http://www.tutorialspoint.com/html/index.htm" target="_top">HTML </a>
+<a href="http://www.tutorialspoint.com/css/index.htm" target="_top">CSS </a>
+<a href="http://www.tutorialspoint.com/javascript/index.htm" target="_top">Javascript </a>
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a>
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a>
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+<a href="http://www.tutorialspoint.com/more.htm" target="_top">MORE...</a>
+</div>
+<div id="right">
+<a href="http://www.tutorialspoint.com/references.htm" target="_top">REFERENCES</a> |
+<a href="http://www.tutorialspoint.com/forums/index.php" target="_top">FORUM</a> |
+<a href="http://www.tutorialspoint.com/about/index.htm" target="_top">ABOUT</a> |
+<a href="http://www.tutorialspoint.com/about/contact_us.htm" target="_top">CONTACT</a>
+</div>
+</div>
+</div>
+<div class="wrapper">
+<div id="leftcol">
+<div class="mini-logo">
+<img src="Java.util.ArrayList%20Class_files/java-util-logo.png" alt="Java.util package examples">
+</div>
+<ul class="menu">
+<li class="heading">Java.util package classes</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/index.htm">Home</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_arraydeque.htm">ArrayDeque</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_arraylist.htm"><b>ArrayList</b></a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_arrays.htm">Arrays</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_bitset.htm">BitSet</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_calendar.htm">Calendar</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_collections.htm">Collections</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_currency.htm">Currency</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_date.htm">Date</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_dictionary.htm">Dictionary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_enummap.htm">EnumMap</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_enumset.htm">EnumSet</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_formatter.htm">Formatter</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_gregoriancalendar.htm">GregorianCalendar</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_hashmap.htm">HashMap</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_hashset.htm">HashSet</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_hashtable.htm">Hashtable</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_identityhashmap.htm">IdentityHashMap</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_linkedhashmap.htm">LinkedHashMap</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_linkedhashset.htm">LinkedHashSet</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_linkedlist.htm">LinkedList</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_listresourcebundle.htm">ListResourceBundle</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_locale.htm">Locale</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_observable.htm">Observable</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_priorityqueue.htm">PriorityQueue</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_properties.htm">Properties</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_propertypermission.htm">PropertyPermission</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_propertyresourcebundle.htm">PropertyResourceBundle</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_random.htm">Random</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_resourcebundle.htm">ResourceBundle</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_resourcebundle_control.htm">ResourceBundle.Control</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_scanner.htm">Scanner</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_serviceloader.htm">ServiceLoader</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_simpletimezone.htm">SimpleTimeZone</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_stack.htm">Stack</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_stringtokenizer.htm">StringTokenizer</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_timer.htm">Timer</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_timertask.htm">TimerTask</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_timezone.htm">TimeZone</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_treemap.htm">TreeMap</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_treeset.htm">TreeSet</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_uuid.htm">UUID</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_vector.htm">Vector</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_weakhashmap.htm">WeakHashMap</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java.util package extras</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_interfaces.htm">Interfaces</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_exceptions.htm">Exceptions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/util/java_util_enumerations.htm">Enumerations</a></li>
+</ul>
+<ul class="menu">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</div><!-- leftcol -->
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java.util.ArrayList Class</h1>
+<div class="topgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="Java.util.ArrayList%20Class_files/show_ads.html"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/util/java_util_arraydeque.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/util/java_util_arrays.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<h2>Introduction</h2>
+<p>The <b>java.util.ArrayList</b> class provides resizable-array and implements the <b>List</b> interface.Following are the important points about ArrayList:</p>
+<ul class="list">
+<li><p>It implements all optional list operations and it also permits all elements, includes null.</p></li>
+<li><p>It provides methods to manipulate the size of the array that is used internally to store the list.</p></li>
+<li><p>The constant factor is low compared to that for the LinkedList implementation. </p></li>
+</ul>
+<h2>Class declaration</h2>
+<p>Following is the declaration for <b>java.util.ArrayList</b> class:</p>
+<pre style="" class="prettyprint prettyprinted"><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="pln">E</span><span class="pun">&gt;</span><span class="pln">
+   </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">AbstractList</span><span class="pun">&lt;</span><span class="pln">E</span><span class="pun">&gt;</span><span class="pln">
+      </span><span class="kwd">implements</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="pln">E</span><span class="pun">&gt;,</span><span class="pln"> </span><span class="typ">RandomAccess</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Cloneable</span><span class="pun">,</span><span class="pln"> </span><span class="typ">Serializable</span></pre>
+<p>Here <b>&lt;E&gt;</b> represents an Element. For example, if you're building an array list of Integers then you'd initialize it as</p>
+<pre style="" class="prettyprint prettyprinted"><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">Integer</span><span class="pun">&gt;</span><span class="pln"> list </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">ArrayList</span><span class="pun">&lt;</span><span class="typ">Integer</span><span class="pun">&gt;();</span><span class="pln">  </span></pre> 
+<h2>Class constructors</h2>
+<table class="src">
+<tbody><tr><th style="width:5%">S.N.</th><th>Constructor &amp; Description</th></tr>
+<tr><td>1</td><td><b>ArrayList()</b><br>This constructor is used to create an empty list with an initial capacity sufficient to hold 10 elements.</td></tr>
+<tr><td>2</td><td><b>ArrayList(Collection&lt;? extends E&gt; c)</b><br>This constructor is used to create a list containing the elements of the specified collection.</td></tr>
+<tr><td>3</td><td><b>ArrayList(int initialCapacity)</b><br>This constructor is used to create an empty list with an initial capacity.</td></tr>
+</tbody></table>
+<h2>Class methods</h2>
+<table class="src">
+<tbody><tr><th style="width:5%">S.N.</th><th>Method &amp; Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_add.htm">boolean add(E e) </a><br>This method appends the specified element to the end of this list.</td></tr>
+<tr><td>2</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_add_index.htm">void add(int index, E element) </a><br>This method inserts the specified element at the specified position in this list.</td></tr>
+<tr><td>3</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_addall.htm">boolean addAll(Collection&lt;? extends E&gt; c) </a><br>This
+ method appends all of the elements in the specified collection to the 
+end of this list, in the order that they are returned by the specified 
+collection's Iterator</td></tr>
+<tr><td>4</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_addall_index.htm">boolean addAll(int index, Collection&lt;? extends E&gt; c) </a><br>This method inserts all of the elements in the specified collection into this list, starting at the specified position.</td></tr>
+<tr><td>5</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_clear.htm">void clear() </a><br>This method removes all of the elements from this list.</td></tr>
+<tr><td>6</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_clone.htm">Object clone() </a><br>This method returns a shallow copy of this ArrayList instance.</td></tr>
+<tr><td>7</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_contains.htm">boolean contains(Object o) </a><br>This method returns true if this list contains the specified element.</td></tr>
+<tr><td>8</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_ensurecapacity.htm">void ensureCapacity(int minCapacity) </a><br>This increases the capacity of this ArrayList.</td></tr>
+<tr><td>9</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_get.htm">E get(int index) </a><br>This method returns the element at the specified position in this list.</td></tr>
+<tr><td>10</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_indexof.htm">int indexOf(Object o) </a><br>This
+ method returns the index of the first occurrence of the specified 
+element in this list, or -1 if this list does not contain the element.</td></tr>
+<tr><td>11</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_isempty.htm">boolean isEmpty() </a><br>This method returns true if this list contains no elements.</td></tr>
+<tr><td>12</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_lastindexof.htm"> int lastIndexOf(Object o) </a><br>This
+ method returns the index of the last occurrence of the specified 
+element in this list, or -1 if this list does not contain the element.</td></tr>
+<tr><td>13</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_remove.htm"> E remove(int index) </a><br>This method removes the element at the specified position in this list.</td></tr>
+<tr><td>14</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_remove_object.htm"> boolean remove(Object o) </a><br>This method removes the first occurrence of the specified element from this list, if it is present.</td></tr>
+<tr><td>15</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_removerange.htm"> protected void removeRange(int fromIndex, int toIndex) </a><br>This method removes from this list all of the elements whose index is between fromIndex(inclusive) and toIndex(exclusive).</td></tr>
+<tr><td>16</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_set.htm"> E set(int index, E element) </a><br>This method replaces the element at the specified position in this list with the specified element.</td></tr>
+<tr><td>17</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_size.htm"> int size() </a><br>This method returns the number of elements in this list.</td></tr>
+<tr><td>18</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_toarray_object.htm"> Object[] toArray() </a><br>This method returns an array containing all of the elements in this list in proper sequence (from first to last element).</td></tr>
+<tr><td>19</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_toarray.htm"> &lt;T&gt; T[] toArray(T[] a) </a><br>This
+ method returns an array containing all of the elements in this list in 
+proper sequence (from first to last element); the runtime type of the 
+returned array is that of the specified array.</td></tr>
+<tr><td>20</td><td><a href="http://www.tutorialspoint.com/java/util/arraylist_trimtosize.htm"> void trimToSize() </a><br>This method trims the capacity of this ArrayList instance to be the list's current size.</td></tr>
+</tbody></table>
+<br>
+<h2>Methods inherited</h2>
+<p>This class inherits methods from the following classes:</p>
+<ul class="list">
+<li><p>java.util.AbstractList</p></li>
+<li><p>java.lang.AbstractCollection</p></li>
+<li><p>java.util.Object</p></li>
+<li><p>java.util.List</p></li>
+</ul>
+<br>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/util/java_util_arraydeque.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="pdf-btn">
+<a href="http://www.tutorialspoint.com/java/util/pdf/java_util_arraylist.pdf" alt="Java.util.ArrayList Class" target="_blank">PDF Version</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/util/java_util_arrays.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+</div>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text";
+google_ad_channel ="9030538898";
+google_color_border="ffffff";
+google_color_link="900b09";
+google_color_url="000000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java.util.ArrayList%20Class_files/show_ads.html"></script>
+</div>
+</div><!-- middlecol -->
+<div id="rightcol">
+<!-- AddThis Button BEGIN -->
+<div class="addthis">
+<div class="addthis_toolbox addthis_default_style">
+<a href="#" title="Facebook" class="addthis_button_facebook at300b"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a href="#" title="Tweet" class="addthis_button_twitter at300b"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<script type="text/javascript">
+<!--
+ document.write('<a class="addthis_button_google_plusone" g:plusone:count="false"></a>');
+//-->
+</script><a class="addthis_button_google_plusone at300b" g:plusone:count="false"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Java.util.ArrayList%20Class_files/fastbutton.html" name="I0_1372851698212" id="I0_1372851698212" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></a>
+<a title="Linkedin" target="_blank" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=ra-4f661ec623a400f0&amp;source=tbx-300&amp;lng=en-US&amp;s=linkedin&amp;url=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Futil%2Fjava_util_arraylist.htm&amp;title=Java.util.ArrayList%20Class&amp;ate=AT-ra-4f661ec623a400f0/-/-/51d40df20952f36d/2&amp;frommenu=1&amp;uid=51d40df24426e97c&amp;ct=1&amp;pre=http%3A%2F%2Fwww.google.com%2Furl%3Fsa%3Dt%26rct%3Dj%26q%3D%26esrc%3Ds%26source%3Dwebhp%26cd%3D1%26ved%3D0CCsQFjAA%26url%3Dhttp%253A%252F%252Fwww.tutorialspoint.com%252Fjava%252Futil%252Fjava_util_arraylist.htm%26ei%3D9A3UUZCdCo3irAe26ICICw%26usg%3DAFQjCNHYHPGB6wr-9orzcL-iYiCzcSmGDg%26bvm%3Dbv.48705608%2Cd.bmk&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_linkedin at300b"><span class="at16nc at300bs at15nc at15t_linkedin at16t_linkedin"><span class="at_a11y">Share on linkedin</span></span></a>
+<a href="#" title="Email" target="_blank" class="addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" class="addthis_button_compact at300m"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<div class="atclear"></div></div>
+<script type="text/javascript" src="Java.util.ArrayList%20Class_files/addthis_widget.js"></script>
+</div>
+<!-- AddThis Button END -->
+<div class="localad">
+<a rel="nofollow" href="http://www.modernindianbabynames.com/" target="_blank" title="Modern Baby Names">Modern Baby Names</a>
+</div>
+<div class="localad">
+<a rel="nofollow" href="http://www.photofuntoos.com/" target="_blank" title="Online Photo Editing">Online Photo Editing</a>
+</div>
+<div class="rightgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Java.util.ArrayList%20Class_files/show_ads.html"> 
+</script>
+</div>
+</div><!-- rightcol -->
+<div style="clear:both;"></div>
+</div><!-- wrapper -->
+<div id="footer">
+<div class="wrapper">
+<div id="bottommenu">
+<a href="http://www.tutorialspoint.com/asp.net/index.htm" target="_top">ASP.NET </a> |
+<a href="http://www.tutorialspoint.com/jquery/index.htm" target="_top">jQuery </a> |
+<a href="http://www.tutorialspoint.com/ajax/index.htm" target="_top">AJAX </a> |
+<a href="http://www.tutorialspoint.com/ant/index.htm" target="_top">ANT</a> |
+<a href="http://www.tutorialspoint.com/jsp/index.htm" target="_top">JSP </a> |
+<a href="http://www.tutorialspoint.com/servlets/index.htm" target="_top">Servlets </a> |
+<a href="http://www.tutorialspoint.com/log4j/index.htm" target="_top">log4j </a> |
+<a href="http://www.tutorialspoint.com/ibatis/index.htm" target="_top">iBATIS </a> |
+<a href="http://www.tutorialspoint.com/hibernate/index.htm" target="_top">Hibernate </a> |
+<a href="http://www.tutorialspoint.com/jdbc/index.htm" target="_top">JDBC </a> |
+<a href="http://www.tutorialspoint.com/struts_2/index.htm" target="_top">Struts </a> |
+<a href="http://www.tutorialspoint.com/html5/index.htm" target="_top">HTML5 </a> |
+<a href="http://www.tutorialspoint.com/sql/index.htm" target="_top">SQL </a> |
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a> |
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a> |
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+</div>
+<div id="copyright">
+<p>Copyright © 2013 by tutorialspoint. All Rights Reserved.</p>
+</div>
+</div>
+</div>
+
+</body></html>

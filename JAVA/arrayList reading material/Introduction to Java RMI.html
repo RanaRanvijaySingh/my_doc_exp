@@ -1,0 +1,562 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta name="keywords" content="java idl, corba, applet, application, IDL, distributed computing, David Reilly, davidreilly.com">
+<meta name="author" content="David Reilly">
+<meta name="description" content="With the introduction of support for CORBA into Java 1.2, developers can now create distributed systems that run in a hybrid mix of Java and other CORBA-friendly languages. While there may still be a place for technologies such as RMI, CORBA represents a great threat, and offers great rewards for those Java developers that adopt it. (1200 words)">
+<meta name="DC.creator" content="David Reilly">
+<meta name="DC.subject" content="java idl, corba, applet, application, IDL, distributed computing, David Reilly, davidreilly.com">
+<meta name="DC.title" content="Java with CORBA - a smooth blend">
+<title>Introduction to Java RMI</title>
+</head>
+
+<body>
+<!--webbot bot="Include" U-Include="../../ads/add_code_c.html" TAG="BODY" startspan -->
+
+<p align="center">
+
+<script language="JavaScript"> 
+<!-- /* Copyright 1997-2003 BURST! Media, LLC. All Rights Reserved. (Version 1.0J) */ 
+function ShowBurstAd(adcode, width, height, sizes, intrusive, bgcolor, background) {
+var bN = navigator.appName;
+var bV = parseInt(navigator.appVersion);
+var base='http://www.burstnet.com/';
+var Tv=''; var Itr='';
+var sz=''; var bkgd='';
+var bgc=''; var rfr='';
+var vr='v=1.0J';
+var agt=navigator.userAgent.toLowerCase();
+
+if (sizes.length!=0) {sz='/sz='+sizes;} else {sz='';}
+if (bgcolor.length!=0) {bgc='/zg' + bgcolor;} else {bgc='';}
+if (background.length!=0) {bkgd='/bgi='+(escape(escape(background))).replace(/\//gi,'%252F');} else {bkgd='';}
+rfr='/r='+(escape(escape(top.location.href))).replace(/\//gi,'%252F');
+                            
+if (bV>=4) {
+  ts=window.location.pathname+window.location.search;
+  i=0; Tv=0; while (i< ts.length)
+    { Tv=Tv+ts.charCodeAt(i); i=i+1; } Tv="/"+Tv;
+} else {Tv=escape(window.location.pathname);
+  if( Tv.charAt(0)!='/' ) Tv="/"+Tv;
+    else if (Tv.charAt(1)=="/")
+ Tv="";
+  if( Tv.charAt(Tv.length-1) == "/")
+   Tv = Tv + "_";
+}
+
+var fCode='<ifr'+'ame id="BURST" src="'+base+
+ 'cgi-bin/ads/'+adcode+'.cgi/NI/if/'+vr+bgc+sz+bkgd+
+ rfr+Tv+'/RETURN-CODE" width="'+width+'" height="'+
+ height+'"'+'marginwidth="0" marginheight="0"'+
+ 'hspace="0" vspace="0" frameborder="0" '+
+ 'scrolling="no">';
+ var gCode = '<'+'a href="'+base+'ads/'+adcode+'-map.cgi/'+
+ vr+sz+rfr+Tv+'" target=_top><im'+'g src="'+base+
+ 'cgi-bin/ads/'+adcode+'.cgi/'+vr+sz+rfr+Tv+
+ '" border="0" alt="Click Here"></a>';
+var fCodeEnd = '</ifr'+'ame>';
+
+if ((adcode.charAt(0)=="a")&&(intrusive=="1")) {
+ Itr='<di'+'v><scr'+'ipt src="'+base+'cgi-bin/ads/'+adcode+
+ '.cgi/sz=0X0MN/'+vr+rfr+Tv+'/RETURN-CODE/JS/"></scr'+'ipt></d'+'iv>';
+}
+
+if (agt.indexOf("mac")==-1) {
+  document.write(fCode+gCode+fCodeEnd+Itr);
+} else {
+  document.write(gCode);
+}
+}
+//-->
+</script>
+<!-- END BURST CODE -->
+
+
+<!-- BEGIN RICH-MEDIA BURST! CODE --> 
+<script language="JavaScript">
+<!--
+ShowBurstAd('ad2350a','468','60','468x60A','1', '', '');
+// --></script><iframe id="BURST" src="Introduction%20to%20Java%20RMI_files/RETURN-CODE.asc" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" height="60" scrolling="no" width="468">&lt;a
+ 
+href="http://www.burstnet.com/ads/ad2350a-map.cgi/v=1.0J/sz=468x60A/r=http%253A%252F%252Fwww.javacoffeebreak.com%252Farticles%252Fjavarmi%252Fjavarmi.html/2971"
+ target=_top&gt;&lt;img 
+src="http://www.burstnet.com/cgi-bin/ads/ad2350a.cgi/v=1.0J/sz=468x60A/r=http%253A%252F%252Fwww.javacoffeebreak.com%252Farticles%252Fjavarmi%252Fjavarmi.html/2971"
+ border="0" alt="Click Here"&gt;&lt;/a&gt;</iframe></p><div><script src="Introduction%20to%20Java%20RMI_files/a.asc"></script></div>
+<noscript><a href="http://www.burstnet.com/ads/ad2350a-map.cgi/ns/v=1.0J/sz=468x60A/" target="_top">
+<img src="http://www.burstnet.com/cgi-bin/ads/ad2350a.cgi/ns/v=1.0J/sz=468x60A/" border="0" alt="Click Here"></a> 
+</noscript>
+<!-- END BURST CODE -->
+
+  
+
+
+<p></p>
+
+<!--webbot bot="Include" endspan i-checksum="26231" -->
+
+
+<h1 align="center">Introduction to Java RMI</h1>
+
+<p align="center"><em><font face="Arial" size="3">By David Reilly</font></em></p>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="0" width="90%">
+  <tbody><tr>
+    <td bgcolor="#FFF4DD" width="100%">Remote method invocation allows applications to call
+    object methods located remotely, sharing resources and processing load across systems.
+    Unlike other systems for remote execution which require that only simple data types or
+    defined structures be passed to and from methods, RMI allows any Java object type to be
+    used - even if the client or server has never encountered it before. RMI allows both
+    client and server to dynamically load new object types as required. In this article,
+    you'll learn more about RMI. </td>
+  </tr>
+</tbody></table>
+</center></div>
+
+<h2>Overview</h2>
+
+<p>Remote Method Invocation (RMI) facilitates object function calls between Java Virtual
+Machines (JVMs). JVMs can be located on separate computers - yet one JVM can invoke
+methods belonging to an object stored in another JVM. Methods can even pass objects that a
+foreign virtual machine has never encountered before, allowing dynamic loading of new
+classes as required. This is a powerful feature! </p>
+
+<p>Consider the follow scenario : 
+
+</p><ul>
+  <li>Developer A writes a service that performs some useful function. He regularly updates
+    this service, adding new features and improving existing ones.</li>
+  <li>Developer B wishes to use the service provided by Developer A. However, it's
+    inconvenient for A to supply B with an update every time.</li>
+</ul>
+
+<p>Java RMI provides a very easy solution! Since RMI can dynamically load new classes,
+Developer B can let RMI handle updates automatically for him. Developer A places the new
+classes in a web directory, where RMI can fetch the new updates as they are required.</p>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="4">
+  <tbody><tr>
+    <td><img src="Introduction%20to%20Java%20RMI_files/rmidiagr.gif" alt="rmidiagr.gif (6734 bytes)" height="175" width="350"></td>
+  </tr>
+  <tr>
+    <td><font face="Arial" size="2"><strong>Figure 1 - Connections made when client uses RMI</strong></font></td>
+  </tr>
+</tbody></table>
+</center></div>
+
+<p>Figure 1 shows the connections made by the client when using RMI. Firstly, the client
+must contact an RMI registry, and request the name of the service. Developer B won't know
+the exact location of the RMI service, but he knows enough to contact Developer A's
+registry. This will point him in the direction of the service he wants to call.. </p>
+
+<p>Developer A's service changes regularly, so Developer B doesn't have a copy of the
+class. Not to worry, because the client automatically fetches the new subclass from a
+webserver where the two developers share classes. The new class is loaded into memory, and
+the client is ready to use the new class. This happens transparently for Developer B - no
+extra code need to be written to fetch the class.</p>
+
+<h2>Writing RMI services</h2>
+
+<p>Writing your own RMI services can be a little difficult at first, so we'll start off
+with an example which isn't too ambitious. We'll create a service that can calculate the
+square of a number, and the power of two numbers (2<sup>38</sup> for example). Due to the
+large size of the numbers, we'll use the java.math.BigInteger class for returning values
+rather than an integer or a long.</p>
+
+<h3>Writing an interface</h3>
+
+<p>The first thing we need to do is to agree upon an interface, An interface is a
+description of the methods we will allow remote clients to invoke. Let's consider exactly
+what we'll need. 
+
+</p><ol>
+  <li>A method that accepts as a parameter an integer, squares it, and returns a BigInteger<br>
+    public BigInteger square ( int number_to_square );</li>
+  <li>A method that accepts as a parameter two integers, calculates their power, and returns a
+    BigInteger<br>
+    public BigInteger power ( int num1, int num2 );</li>
+</ol>
+
+<p>Once we've decided on the methods that will compose our service, we have to create a
+Java interface. An interface is a method which contains abstract methods; these methods
+must be implemented by another class. Here's the source code for our service that
+calculates powers.</p>
+
+<pre><font color="#0000FF">import</font> java.math.BigInteger;
+<font color="#0000FF">import</font> java.rmi.*;
+
+<font color="#FF0000">//
+// PowerService Interface
+//
+// Interface for a RMI service that calculates powers
+//</font>
+<font color="#0000FF">public</font> <font color="#0000FF">interface</font> PowerService <font color="#0000FF">extends</font> java.rmi.Remote
+{
+	<font color="#FF0000">// Calculate the square of a number</font>
+	<font color="#0000FF">public</font> BigInteger square ( <font color="#0000FF">int</font> number )
+		<font color="#0000FF">throws</font> RemoteException;
+
+	<font color="#FF0000">// Calculate the power of a number</font>
+	<font color="#0000FF">public</font> BigInteger power  ( <font color="#0000FF">int</font> num1, <font color="#0000FF">int</font> num2) 
+<font color="#0000FF">		throws</font> RemoteException;
+}</pre>
+
+<p>Our interface extends java.rmi.Remote, which indicates that this is a remote service.
+We provide method definitions for our two methods (square and power), and the interface is
+complete. The next step is to implement the interface, and provide methods for the square
+and power functions.</p>
+
+<h3>Implementing the interface</h3>
+
+<p>Implementing the interface is a little more tricky - we actually have to write the
+square and power methods! Don't worry if you're not sure how to calculate squares and
+powers, this isn't a math lesson. The real code we need to be concerned about is the
+constructor and main method. </p>
+
+<p>We have to declare a default constructor, even when we don't have any initialization
+code for our service. This is because our default constructor can throw a
+java.rmi.RemoteException, from its parent constructor in UnicastRemoteObject. Sound
+confusing? Don't worry, because our constructor is extremely simple.</p>
+
+<p>&nbsp;&nbsp;&nbsp; <font color="#0000FF">public</font> PowerServiceServer () <font color="#0000FF">throws</font> RemoteException<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super();<br>
+&nbsp;&nbsp;&nbsp; }</p>
+
+<p>Our implementation of the service also needs to have a main method. The main method
+will be responsible for creating an instance of our PowerServiceServer, and registering
+(or binding) the service with the RMI Registry. Our main method will also assign a
+security manager to the JVM, to prevent any nasty surprises from remotely loaded classes.
+In this case, a security manager isn't really needed, but in more complex systems where
+untrusted clients will be using the service, it is critical.</p>
+
+<p>&nbsp;&nbsp;&nbsp; <font color="#0000FF">public</font> <font color="#0000FF">static
+void</font> main ( String args[] ) <font color="#0000FF">throws</font> Exception<br>
+&nbsp;&nbsp;&nbsp; {<br>
+<font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Assign a security
+manager, in the event that dynamic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // classes are loaded</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#0000FF">if</font>
+(System.getSecurityManager() == null)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+System.setSecurityManager ( <font color="#0000FF">new</font> RMISecurityManager() );<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000">// Create an instance of
+our power service server ...</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PowerServiceServer svr = <font color="#0000FF">new</font>
+PowerServiceServer();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font color="#FF0000">// ... and bind it with
+the RMI Registry</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Naming.bind ("PowerService", svr);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println ("Service
+bound....");<br>
+&nbsp;&nbsp;&nbsp; }</p>
+
+<p>Once the square and power methods are added, our server is complete. Here's the full
+source code for the PowerServiceServer.</p>
+
+<pre><font color="#0000FF">import</font> java.math.*;
+<font color="#0000FF">import</font> java.rmi.*;
+<font color="#0000FF">import</font> java.rmi.server.*;
+
+<font color="#FF0000">//
+// PowerServiceServer
+//
+// Server for a RMI service that calculates powers
+//</font>
+<font color="#0000FF">public class</font> PowerServiceServer <font color="#0000FF">extends</font> UnicastRemoteObject
+<font color="#0000FF">implements</font> PowerService
+{
+    <font color="#0000FF">public</font> PowerServiceServer () <font color="#0000FF">throws</font> RemoteException
+    {
+        super();
+    }
+
+    <font color="#FF0000">// Calculate the square of a number</font>
+    <font color="#0000FF">public</font> BigInteger square ( <font color="#0000FF">int</font> number ) 
+<font color="#0000FF">    throws</font> RemoteException
+    {
+        String numrep = String.valueOf(number);
+        BigInteger bi = <font color="#0000FF">new</font> BigInteger (numrep);
+        
+        <font color="#FF0000">// Square the number</font>
+        bi.multiply(bi);
+
+        <font color="#0000FF">return</font> (bi);
+    }
+
+    <font color="#FF0000">// Calculate the power of a number</font>
+    <font color="#0000FF">public</font> BigInteger power ( <font color="#0000FF">int</font> num1, <font color="#0000FF">int</font> num2)
+ <font color="#0000FF">   throws</font> RemoteException
+    {
+        String numrep = String.valueOf(num1);
+        BigInteger bi = <font color="#0000FF">new</font> BigInteger (numrep);
+
+	bi = bi.pow(num2);</pre>
+
+<pre><font color="#0000FF">	return</font> bi;
+    }
+
+    <font color="#0000FF">public</font> <font color="#0000FF">static void</font> main ( String args[] ) <font color="#0000FF">throws</font> Exception
+    {
+<font color="#FF0000">        // Assign a security manager, in the event that dynamic
+	// classes are loaded</font>
+        <font color="#0000FF">if</font> (System.getSecurityManager() == null)
+            System.setSecurityManager ( <font color="#0000FF">new</font> RMISecurityManager() );
+
+        <font color="#FF0000">// Create an instance of our power service server ...</font>
+        PowerServiceServer svr = <font color="#0000FF">new</font> PowerServiceServer();
+
+        <font color="#FF0000">// ... and bind it with the RMI Registry</font>
+        Naming.bind ("PowerService", svr);
+
+        System.out.println ("Service bound....");
+    }
+}</pre>
+
+<h2>Writing a RMI client</h2>
+
+<p>What good is a service, if you don't write a client that uses it? Writing clients is
+the easy part - all a client has to do is call the registry to obtain a reference to the
+remote object, and call its methods. All the underlying network communication is hidden
+from view, which makes RMI clients simple.</p>
+
+<p>Our client must first assign a security manager, and then obtain a reference to the
+service. Note that the client receives an instance of the interface we defined earlier,
+and not the actual implementation. Some behind-the-scenes work is going on, but this is
+completely transparent to the client.</p>
+
+<p><font color="#FF0000">&nbsp;&nbsp;&nbsp; // Assign security manager</font><br>
+<font color="#0000FF">&nbsp;&nbsp;&nbsp; if</font> (System.getSecurityManager() == <font color="#0000FF">null</font>)<br>
+&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; System.setSecurityManager&nbsp;&nbsp; (<font color="#0000FF">new</font> RMISecurityManager());<br>
+&nbsp;&nbsp;&nbsp; }<br>
+<br>
+<font color="#FF0000">&nbsp;&nbsp;&nbsp; // Call registry for PowerService</font><br>
+&nbsp;&nbsp;&nbsp; PowerService service = (PowerService) Naming.lookup<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ("rmi://" + args[0] +
+"/PowerService");</p>
+
+<p>To identify a service, we specify an RMI URL. The URL contains the hostname on which
+the service is located, and the logical name of the service. This returns a PowerService
+instance, which can then be used just like a local object reference. We can call the
+methods just as if we'd created an instance of the remote PowerServiceServer ourselves.</p>
+
+<blockquote>
+  <p><font color="#FF0000">// Call remote method</font><br>
+  System.out.println &nbsp;&nbsp; ("Answer : " + service.square(value));</p>
+</blockquote>
+
+<p><font color="#FF0000">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Call remote
+method</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println &nbsp;&nbsp;
+("Answer : " + service.power(value,power));</p>
+
+<p>Writing RMI clients is the easiest part of building distributed services. In fact,
+there's more code for the user interface menu in the client than there is for the RMI
+components! To keep things simple, there's no data validation, so be careful when entering
+numbers. Here's the full source code for the RMI client.</p>
+
+<pre><font color="#0000FF">import</font> java.rmi.*;
+<font color="#0000FF">import</font> java.rmi.Naming;
+<font color="#0000FF">import</font> java.io.*;
+
+<font color="#FF0000">//
+//
+// PowerServiceClient
+//
+//</font>
+<font color="#0000FF">public class</font> PowerServiceClient 
+{
+	<font color="#0000FF">public</font> <font color="#0000FF">static void</font> main(String args[]) <font color="#0000FF">throws</font> Exception
+	{
+		<font color="#FF0000">// Check for hostname argument</font>
+		<font color="#0000FF">if</font> (args.length != 1)
+		{
+			System.out.println
+			("Syntax - PowerServiceClient host");
+			System.exit(1);
+		}
+
+		<font color="#FF0000">// Assign security manager</font>
+		<font color="#0000FF">if</font> (System.getSecurityManager() == <font color="#0000FF">null</font>)
+		{
+			System.setSecurityManager
+			(<font color="#0000FF">new</font> RMISecurityManager());
+		}
+
+		<font color="#FF0000">// Call registry for PowerService</font>
+		PowerService service = (PowerService) Naming.lookup
+			("rmi://" + args[0] + "/PowerService");
+
+		DataInputStream din = <font color="#0000FF">new</font> 
+			DataInputStream (System.in);
+
+		<font color="#0000FF">for</font> (;;)
+		{
+			System.out.println 
+			  ("1 - Calculate square");
+			System.out.println 
+			  ("2 - Calculate power");
+			System.out.println 
+			  ("3 - Exit"); System.out.println();
+			System.out.print ("Choice : ");
+
+			<font color="#0000FF">String</font> line = din.readLine();
+			Integer choice = <font color="#0000FF">new</font> Integer(line);
+			
+			<font color="#0000FF">int</font> value = choice.intValue();
+
+			<font color="#0000FF">switch</font> (value)
+			{
+			<font color="#0000FF">case</font> 1:
+			  System.out.print ("Number : ");
+			  line = din.readLine();System.out.println();
+			  choice = <font color="#0000FF">new</font> Integer (line);
+			  value  = choice.intValue();
+				
+			  <font color="#FF0000">// Call remote method</font>
+			  System.out.println 
+			  ("Answer : " + service.square(value));
+				
+			  <font color="#0000FF">break</font>;
+			<font color="#0000FF">case</font> 2:
+			  System.out.print ("Number : ");
+			  line = din.readLine();					
+			  choice = <font color="#0000FF">new</font> Integer (line);
+			  value  = choice.intValue();
+				
+			  System.out.print ("Power  : ");
+			  line = din.readLine();
+			  choice = <font color="#0000FF">new</font> Integer (line);
+			  <font color="#0000FF">int</font> power = choice.intValue();
+
+			  <font color="#FF0000">// Call remote method</font>
+			  System.out.println 
+		("Answer : " + service.power(value, power));
+
+			  <font color="#0000FF">break</font>;
+			<font color="#0000FF">case</font> 3:
+			  System.exit(0);
+			<font color="#0000FF">default</font> :
+			  System.out.println ("Invalid option");
+			<font color="#0000FF">break</font>;
+			}
+		}
+	}
+
+}</pre>
+
+<h3>Running the client and server</h3>
+
+<p>Our example was extremely simple. More complex systems, however, might contain
+interfaces that change, or whose implementation changes. To run this article's examples,
+both the client and server will have a copy of the classfiles, but more advanced systems
+might share the code of the server on a webserver, for downloading as required. If your
+systems do this, don't forget to set the system property <em>java.rmi.server.codebase</em>
+to the webserver directory in which your classes are stored!</p>
+
+<p>You can download all the source and class files together as a <a href="#code">single
+ZIP file</a>. Unpack the files into a directory, and then perform the following steps. 
+
+</p><ol>
+  <li><h4>Start the rmiregistry</h4>
+    <p>To start the registry, Windows users should do the following (assuming that your
+    java\bin directory is in the current path):-</p>
+    <pre>start rmiregistry </pre>
+    <p>To start the registry, Unix users should do the following:-</p>
+    <p>rmiregistry &amp; </p>
+  </li>
+  <li>
+    <h4>Compile the server</h4>
+    <p>Compile the server, and use the <code>rmic</code> tool to create stub files.</p>
+  </li>
+  <li><h4>Start the server</h4>
+    <p>From the directory in which the classes are located, type the following:-</p>
+    <pre>java PowerServiceServer</pre>
+  </li>
+  <li><h4>Start the client</h4>
+    <p>You can run the client locally, or from a different machine. In either case, you'll
+    need to specify the hostname of the machine where you are running the server. If you're
+    running it locally, use localhost as the hostname.</p>
+    <pre>java PowerServiceClient localhost </pre>
+  </li>
+</ol>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="4" width="80%">
+  <tbody><tr>
+    <td bgcolor="#DDFFFC" width="100%"><font color="#000080">TIP - If you running the client
+    or server with JDK1.2, then you'll need to change the security settings. You'll need to
+    specify a security policy file (a sample is included with the source code and classes)
+    when you run the client and server.</font><p><font color="#000080">The following changes
+    should be made when running the server</font></p>
+    <p><font color="#000080">java -Djava.security.policy=java.policy PowerServiceServer</font></p>
+    <p><font color="#000080">The following changes should be made when running the client</font></p>
+    <p><font color="#000080">java -Djava.security.policy=java.policy PowerServiceClient
+    localhost</font></p></td>
+  </tr>
+</tbody></table>
+</center></div>
+
+<h3>Summary</h3>
+
+<p>Java RMI is a useful mechanism for invoking methods of remote objects. Java RMI allows
+one Java Virtual Machine to invoke methods of another, and to share any Java object type,
+even if client or server has never come across that object type before. </p>
+
+<h3>Resources</h3>
+
+<p>Merlin Hughes, et al. <a href="http://www.amazon.com/exec/obidos/ASIN/0138412065/davidreillysprog">Java Network
+Programming</a>, Manning Publications, 1997.</p>
+
+<p>Sun Microsystems, The Java Tutorial, [online] at <a href="http://java.sun.com/docs/books/tutorial/">http://java.sun.com/docs/books/tutorial/</a></p>
+<div align="center"><center>
+
+<table border="0" cellpadding="0" cellspacing="4" width="80%">
+  <tbody><tr>
+    <td bgcolor="#D1EFFE" width="100%"><p align="center"><a name="code">Don't wear out your
+    fingers typing in code!</a></p>
+    <p>All of the source code, examples, and demonstrations for this article are available
+    from</p>
+    <p><a href="ftp://ftp.davidreilly.com/pub/jcb/code/javarmi.zip">ftp://ftp.davidreilly.com/pub/jcb/code/javarmi.zip</a></p></td>
+  </tr>
+</tbody></table>
+</center></div><!--webbot bot="Include" U-Include="../../_private/footer.html" TAG="BODY" startspan -->
+
+<p align="center"><a href="http://www.javacoffeebreak.com/index.html">Back to main</a></p>
+
+<hr>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td width="451">
+      <div align="left">
+        <address>
+          <font face="Arial" size="2">Copyright 1998, 1999, 2000 David Reilly</font>
+        </address>
+      </div>
+    </td>
+    <td width="310">
+      <p align="right"><font face="Arial" size="2"><a href="http://www.javacoffeebreak.com/legal/privacy.html">Privacy</a>
+      | <a href="http://www.javacoffeebreak.com/legal/index.html">Legal</a> | <a href="http://www.javacoffeebreak.com/legal/linking.html">Linking</a>
+      | <a href="http://www.javacoffeebreak.com/advertising/index.html" style="color: #FF9966">Advertise!</a></font></p></td>
+  </tr>
+  <tr>
+    <td width="451">
+      <div align="left">
+        <address>
+          <font face="Arial" size="2">Last updated: 
+          Monday, June 05, 2006</font>
+        </address>
+      </div>
+    </td>
+    <td width="310"></td>
+  </tr>
+</tbody></table>
+<!--webbot bot="Include" endspan i-checksum="925" -->
+
+
+
+</body></html>

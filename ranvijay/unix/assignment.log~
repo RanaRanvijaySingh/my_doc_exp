@@ -1,0 +1,65 @@
+HOSTENAME IS : 
+webonise-desktop
+Thu Jun 27 19:57:22 IST 2013
+     
+COMPLETE DIRECTORY PATH :
+/home/webonise/Desktop/ranvijay/unix
+Thu Jun 27 19:57:22 IST 2013
+     
+DETAIL OF THE OERATING SYSTEM : 
+Linux webonise-desktop 3.2.0-48-generic #74-Ubuntu SMP Thu Jun 6 19:43:26 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
+Thu Jun 27 19:57:22 IST 2013
+     
+COMPLETE DIRECTORY PATH :
+/home/webonise/Desktop/ranvijay/unix
+Thu Jun 27 19:57:22 IST 2013
+     
+LAST USER TO LOG IN WAS: 
+ 19:57:22 up  9:50,  3 users,  load average: 0.18, 0.14, 0.14
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+webonise tty7                      10:07    9:50m  8:41   0.70s gnome-session -
+webonise pts/0    :0               10:30   26:50   1.29s  1.28s bash
+webonise pts/1    :0               18:57    2.00s  0.18s  0.00s sh commands.sh
+Thu Jun 27 19:57:22 IST 2013
+     
+PRESENT GROUP IS: 
+webonise adm cdrom sudo dip plugdev lpadmin sambashare
+Thu Jun 27 19:57:22 IST 2013
+     
+ALL THE FILE IN THE DIRECOTRY AND SUB DIRECTORY: 
+-rw-rw-r-- 1 webonise webonise 182 2013-06-20 13:32:06.000000000 +0530 ./practice.java
+-rw-rw-r-- 1 webonise webonise 234 2013-06-20 14:42:00.000000000 +0530 ./Date.class
+-rw-rw-r-- 1 webonise webonise 182 2013-06-20 18:59:35.000000000 +0530 ./Classroom.class
+-rw-rw-r-- 1 webonise webonise 312 2013-06-20 18:59:35.000000000 +0530 ./Faculty.class
+-rw-rw-r-- 1 webonise webonise 346 2013-06-20 18:59:35.000000000 +0530 ./Person.class
+-rw-rw-r-- 1 webonise webonise 389 2013-06-20 18:59:35.000000000 +0530 ./Building.class
+-rw-rw-r-- 1 webonise webonise 567 2013-06-20 18:59:35.000000000 +0530 ./Library.class
+-rw-rw-r-- 1 webonise webonise 636 2013-06-20 18:59:35.000000000 +0530 ./Canteen.class
+-rw-rw-r-- 1 webonise webonise 761 2013-06-20 18:59:35.000000000 +0530 ./Department.class
+-rw-rw-r-- 1 webonise webonise 0 2013-06-27 19:38:33.476277304 +0530 ./Unix_Unix_Unix_a.txt
+-rw-rw-r-- 1 webonise webonise 0 2013-06-27 19:38:39.972277505 +0530 ./Unix_Unix_Unix_b.txt
+-rw-rw-r-- 1 webonise webonise 0 2013-06-27 19:38:45.972277692 +0530 ./Unix_Unix_Unix_c.txt
+-rw-rw-r-- 1 webonise webonise 0 2013-06-27 19:38:54.628277960 +0530 ./Unix_xuro.log
+-rw-rw-r-- 1 webonise webonise 0 2013-06-27 19:39:04.524278268 +0530 ./Unix_xcam
+-rwxrwxrwx 1 webonise webonise 0 2013-06-27 19:39:25.084278907 +0530 ./public_html/readme.txt
+-rw-rw-r-- 1 webonise webonise 228 2013-06-27 19:42:22.196284409 +0530 ./Untitled Document
+-rw-rw-r-- 1 webonise webonise 1532 2013-06-27 19:56:55.508311537 +0530 ./commands.sh~
+-rw-rw-r-- 1 webonise webonise 3187 2013-06-27 19:57:04.504311817 +0530 ./assignment.log~
+-rw-rw-r-- 1 webonise webonise 1526 2013-06-27 19:57:11.400312031 +0530 ./commands.sh
+-rw-rw-r-- 1 webonise webonise 1025 2013-06-27 19:57:22.148312365 +0530 ./assignment.log
+Thu Jun 27 19:57:22 IST 2013
+     
+RENAMING ALL THE FILE WITH TXT FORMAT: 
+Unix_Unix_Unix_a.txt renamed as Unix_Unix_Unix_Unix_a.txt
+Unix_Unix_Unix_b.txt renamed as Unix_Unix_Unix_Unix_b.txt
+Unix_Unix_Unix_c.txt renamed as Unix_Unix_Unix_Unix_c.txt
+Thu Jun 27 19:57:22 IST 2013
+     
+RENAMING ALL THE FILE WITH STARTING LETTER X
+Thu Jun 27 19:57:22 IST 2013
+     
+FILE PERMISSION CHANGED: 
+Thu Jun 27 19:57:22 IST 2013
+     
+copying file  : 
+     

@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>table format</title>
+<style>
+table.margin
+{
+	margin-top:200px;
+	margin-left:400px;
+}
+table
+{
+	width:33%;
+	height:40%
+}
+</style>
+</head>
+
+<body >
+ 
+	<table class="margin" cellspacing="2" cellpadding="2" border="1">
+	
+		<tr>
+			<td colspan="3">&nbsp;&nbsp;</td>
+
+			<td colspan="3">&nbsp;&nbsp;</td>
+
+
+		</tr>
+			
+		<tr>
+			<td colspan="2">&nbsp;&nbsp;</td>
+			<td colspan="2">&nbsp;&nbsp;</td>
+
+			<td colspan="2">&nbsp;&nbsp;</td>
+
+		</tr>
+	
+		<tr>
+			<td rowspan="2" colspan="3">&nbsp;&nbsp;</td>
+			<td colspan="3">&nbsp;&nbsp;</td>
+
+		</tr>
+	
+		<tr>
+			<td colspan="3">&nbsp;&nbsp;</td>
+			
+
+		</tr>
+	
+		<tr>
+			<td colspan="4">&nbsp;&nbsp;</td>
+			<td colspan="2">&nbsp;&nbsp;</td>
+
+
+
+		</tr>
+	
+
+	</table>
+
+
+ </body>
+ </html>

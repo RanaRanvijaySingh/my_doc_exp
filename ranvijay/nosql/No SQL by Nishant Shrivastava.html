@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html style="" class="decks show mz-js mz-no-touch mz-history mz-rgba mz-backgroundsize mz-opacity mz-csstransforms mz-csstransforms3d mz-csstransitions mz-localstorage mz-applicationcache mz-svg mz-fullscreen loaded" data-account="free"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>No SQL by Nishant Shrivastava</title>
+    <meta name="description" content="A simple presentation, for knowing about NOSQL and getting familiar to MongoDB.">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta property="og:title" content="No SQL by Nishant Shrivastava">
+    <meta property="og:site_name" content="Slides">
+    <meta property="og:image" content="https://s3.amazonaws.com/media-p.slid.es/thumbnails/nishantshrivastava/d9bb39/no-sql.jpg">
+    <meta property="og:type" content="presentation">
+    <meta property="og:url" content="http://slid.es/nishant-shrivastava/no-sql">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link href="No%20SQL%20by%20Nishant%20Shrivastava_files/slides-b542441cc83c9252c10ce7c9c8e825d1.css" media="all" rel="stylesheet" type="text/css">
+    <link href="No%20SQL%20by%20Nishant%20Shrivastava_files/application-924ce7e1ee2e2d39530c1b22f1440eec.css" media="all" rel="stylesheet" type="text/css">
+    <script async="" src="No%20SQL%20by%20Nishant%20Shrivastava_files/cbgapi.loaded_0"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/segment.js" async="" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/ga.js" async="" type="text/javascript"></script><script gapi_processed="true" src="No%20SQL%20by%20Nishant%20Shrivastava_files/plusone.js" async="" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/widgets.js" id="twitter-wjs"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/all.js" id="facebook-jssdk"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/analytics.js" async="" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/modernizr-b1db6b713cb93bf530df9661b57e8299.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param">
+<meta content="UU+kEwZ4vlOjYzdhEaNCJ9uWo6MoSzJBu2/aU7szIjM=" name="csrf-token">
+    <script type="text/javascript">
+  var analytics=analytics||[];analytics.load=function(e){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+e+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);var r=function(e){return function(){analytics.push([e].concat(Array.prototype.slice.call(arguments,0)))}},i=["identify","track","trackLink","trackForm","trackClick","trackSubmit","pageview","ab","alias","ready"];for(var s=0;s<i.length;s++)analytics[i[s]]=r(i[s])};
+  analytics.load("8t66f1pnq9");
+</script>
+    	<link href="No%20SQL%20by%20Nishant%20Shrivastava_files/reveal-491f000b05cbdcd64f468440eab9d587.css" media="all" rel="stylesheet" type="text/css">
+	<style id="user-css-output" type="text/css"></style>
+
+  <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/embed.js" async="" type="text/javascript"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}
+.fb_invisible{display:none}
+.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}
+.fb_reset > div{overflow:hidden}
+.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}
+.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}
+.fb_dialog_content{background:#fff;color:#333}
+.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px;top:8px\9;right:7px\9}
+.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}
+.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}
+.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}
+.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}
+.fb_dialog_top_left,
+.fb_dialog_top_right,
+.fb_dialog_bottom_left,
+.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}
+/* @noflip */
+.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}
+/* @noflip */
+.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}
+/* @noflip */
+.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right,
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}
+.fb_dialog_vert_left,
+.fb_dialog_vert_right{width:10px;height:100%}
+.fb_dialog_vert_left{margin-left:-10px}
+.fb_dialog_vert_right{right:0;margin-right:-10px}
+.fb_dialog_horiz_top,
+.fb_dialog_horiz_bottom{width:100%;height:10px}
+.fb_dialog_horiz_top{margin-top:-10px}
+.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}
+.fb_dialog_iframe{line-height:0}
+.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}
+.fb_dialog_content .dialog_title > span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif)
+no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}
+body.fb_hidden{-webkit-transform:none;height:100%;margin:0;left:-10000px;overflow:visible;position:absolute;top:-10000px;width:100%
+}
+.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif)
+white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}
+.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}
+#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}
+#fb-root #fb_dialog_ipad_overlay.hidden{display:none}
+.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}
+.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0 0, 0 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}
+.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%
+}
+.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px
+}
+.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0 0, 0 100%, from(#4966A6),
+color-stop(0.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset,
+rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}
+.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}
+.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}
+.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}
+#fb_dialog_loader_close{float:left}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}
+.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}
+.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}
+.fb_iframe_widget iframe{position:absolute}
+.fb_iframe_widget_lift{z-index:1}
+.fb_hide_iframes iframe{position:relative;left:-10000px}
+.fb_iframe_widget_loader{position:relative;display:inline-block}
+.fb_iframe_widget_fluid{display:inline}
+.fb_iframe_widget_fluid span{width:100%}
+.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}
+.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,
+.fb_connect_bar_container span,
+.fb_connect_bar_container a,
+.fb_connect_bar_container img,
+.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}
+.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}
+.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}
+.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}
+.fb_connect_bar a:hover{color:#fff}
+.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}
+.fb_connect_bar div a,
+.fb_connect_bar span,
+.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}
+.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fb_edge_widget_with_comment{position:relative;*z-index:1000}
+.fb_edge_widget_with_comment span.fb_edge_comment_widget{position:absolute}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget{z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget .FB_Loader{left:0;top:1px;margin-top:6px;margin-left:0;background-position:50% 50%;background-color:#fff;height:150px;width:394px;border:1px #666 solid;border-bottom:2px solid #283e6c;z-index:1}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.dark .FB_Loader{background-color:#000;border-bottom:2px solid #ccc}
+.fb_edge_widget_with_comment span.fb_send_button_form_widget.siderender
+.FB_Loader{margin-top:0}
+.fbpluginrecommendationsbarleft,
+.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}
+/* @noflip */
+.fbpluginrecommendationsbarleft{left:10px}
+/* @noflip */
+.fbpluginrecommendationsbarright{right:10px}</style></head>
+  <body data-twttr-rendered="true">
+    <div style="min-height: 742px;" id="container" class="container">
+      <header class="global-header">
+  <div class="wrapper">
+    <h1 class="logo-animation open">
+      <a class="symbol" href="http://slid.es/">
+        <div class="box-1"></div>
+        <div class="box-2"></div>
+        <div class="box-3"></div>
+      </a>
+      <a class="word" href="http://slid.es/"></a>
+    </h1>
+    <ul class="nav">
+
+        <li>
+          <div class="sign-in dropdown">
+            <a class="dropdown-button button grey" href="http://slid.es/users/sign_in">
+              Sign in
+            </a>
+
+            <div class="dropdown-list">
+              <ul class="dropdown-list-inner">
+                <li>
+                  <a class="button grey" href="http://slid.es/users/sign_up">
+                    Create an account <span class="icon i-user"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+    </ul>
+  </div>
+</header>
+      
+      <div id="main" class="main" role="main">
+        
+
+
+	
+
+<div class="marquee loading">
+
+	<div class="options">
+		<a class="fullscreen-button" data-tooltip="Fullscreen" data-tooltip-delay="500" href="#"><span class="icon i-fullscreen"></span></a>
+		<a class="external-button" data-tooltip="Open in new window" data-tooltip-delay="500" href="http://slid.es/nishant-shrivastava/no-sql/fullscreen" target="_blank"><span class="icon i-new-window"></span></a>
+		<a class="comment-button" data-tooltip="Comments" data-tooltip-delay="500" href="#comments"><span class="icon i-comment-stroke"></span></a>
+		<a class="share-button" data-tooltip="Share" data-tooltip-delay="500" href="#"><span class="icon i-share"></span></a>
+	</div>
+	<div class="reveal-frame">
+		<div data-background-transition="" data-transition-speed="default" class="reveal reveal-viewport theme-font-league theme-color-grey-blue default">
+			<div style="width: 960px; height: 700px; transform: translate(-50%, -50%) scale(0.841429) translate(50%, 50%);" class="slides">
+				<section class="past" style="display: block;" hidden=""><h1><br></h1>
+<h1>No SQl</h1>
+<p><br></p>
+<p><br></p>
+<p>&nbsp;- Nishant Shrivastava</p>
+<p>nishant@weboniselab.com</p>
+<p>github : nishant-shrivastava</p>
+<p>twitter&nbsp; : n1shant</p></section><section data-previous-indexv="0" class="stack past" style="display: block;" hidden=""><section class="" style="display: block;"><h2 data-fragment-index="0" class="fragment visible"><br></h2>
+<h2>No sql</h2>
+<p>
+<br></p>
+<p><br></p>
+<p>Not Only SQL</p>
+<p>
+<br></p>
+<p>Motto : <br></p>
+<pre><code class="sql">Code : 
+     $ <span class="operator"><span class="keyword">SELECT</span> fun, profit <span class="keyword">from</span> <span class="string">`real_world`</span> <span class="keyword">WHERE</span> <span class="string">`relational`</span> = <span class="keyword">false</span>;</span> </code></pre>
+
+<p>
+<br></p>
+
+
+</section><section class="future" style="display: block;" hidden=""><h2><br></h2>
+<h2>No Sql : Types</h2>
+<p><br></p>
+<p><br></p>
+<ul>
+<li>&nbsp;Wide column store / Column Families</li>
+<li>Key Value / Tuple Store</li>
+<li>Graph Database</li>
+<li>Document Store</li>
+</ul></section><section class="future" style="display: block;" hidden=""><h2>Wide Column Store / Column Families</h2>
+<p><br></p>
+<p><font style="font-size: 32px;">&nbsp;- Created to store and process very large amounts of data distributed over many machines. <br></font></p>
+<font style="font-size: 32px;">
+</font><p><font style="font-size: 32px;">- Still uses keys but they point to multiple columns. <br></font></p>
+<font style="font-size: 32px;">
+</font><p><font style="font-size: 32px;">- The columns are arranged by column family.</font></p>
+<font style="font-size: 32px;">
+</font><p><b>Examples :&nbsp;</b></p>
+<ul>
+<li>Hadoop / HBase</li>
+<li>Cassandra</li>
+<li>Amazon SimpleDB<br>
+</li>
+</ul></section><section class="future" style="display: block;" hidden=""><h2>Key Value / Tuple Store</h2>
+<p><br></p>
+<div align="center">
+<font style="font-size: 32px;">&nbsp;- The idea here is using a hash table where there is a unique key and a pointer to a particular item of data. <br>&nbsp;&nbsp;&nbsp;&nbsp; - The Key/value model is the simplest and easiest to implement. <br>&nbsp;&nbsp;
+ - But it is inefficient when you are only interested in querying or 
+updating part of a value, among other disadvantages.<br>Example : <br></font><ul>
+<li><font style="font-size: 32px;">DynamoDB</font></li>
+<li><font style="font-size: 32px;">Azure<font style="font-size: 32px;"> Table Storage</font></font></li>
+<li><font style="font-size: 32px;">Riak</font></li>
+<li>
+<font style="font-size: 32px;">Redis</font><br>
+</li>
+</ul>
+</div></section><section class="future" style="display: block;" hidden=""><h2>Graph DAtabase</h2>
+<p><font style="font-size: 32px;">- Instead of tables of rows and 
+columns and the rigid structure of SQL, a flexible graph model is used 
+which, again, can scale across multiple machines.</font></p>
+<p><font style="font-size: 32px;">&nbsp;- NoSQL databases do not provide a high-level declarative query language like SQL to avoid overtime in processing. <br></font></p>
+<p><font style="font-size: 32px;">&nbsp;- Rather, querying these databases is data-model specific. </font><span style="color: rgb(0, 0, 0); font-size: 13px; font-style: normal; font-variant: normal; font-weight: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255); display: inline ! important; float: none;"></span></p>
+<p>Example : <br></p>
+<ul>
+<li>Neo4J</li>
+<li>BigData</li>
+<li>InfoGrid<br>
+</li>
+</ul></section><section class="future" style="display: block;" hidden=""><h2>Document Databases</h2>
+<p><font style="font-size: 24px;">- Inspired by Lotus Notes <br></font></p>
+<p><font style="font-size: 24px;">&nbsp;- Similar to key-value stores.<br>&nbsp;- The model is basically versioned documents that are collections of other key-value collections. <br></font></p>
+<p><font style="font-size: 24px;">&nbsp;- The semi-structured documents are stored in formats like JSON.</font></p>
+<p><font style="font-size: 24px;">&nbsp;- Document databases are essentially the next level of Key/value, allowing nested values associated with each key.</font></p>
+<p><font style="font-size: 24px;">- Document databases support querying more efficiently.</font></p>
+<p><font style="font-size: 32px;">Example : <br></font></p>
+<ul>
+<li><font style="font-size: 32px;">MongoDB</font></li>
+<li><font style="font-size: 32px;">CouchDB</font></li>
+</ul></section></section><section data-previous-indexv="0" class="stack past" style="display: block;" hidden=""><section class="" style="display: block;"><h2>4-Fundamentals</h2>
+<div>
+<ul>
+<li><u>BSON Documents</u></li>
+<ul>
+<li><font style="font-size: 24px;">MongoDB is a document-based database system, and as a result, all records, or data, in MongoDB are documents.</font></li>
+<p></p>
+<li>
+<span style="font-size: 24px;">The </span><b style="font-size: 24px;"><i>records</i></b><span style="font-size: 24px;"> are stored in </span><i style="font-size: 24px;"><b>Collections</b></i><br>
+</li>
+</ul>
+<li><font style="font-size: 32px;"><u>Object Id&nbsp;</u></font></li>
+<ul>
+<li><font style="font-size: 32px;">12 byte BSON Type</font></li>
+<li><font style="font-size: 32px;">a 4-byte value representing seconds since the Unix epoch</font></li>
+<li><font style="font-size: 32px;">3-byte machine identifier</font></li>
+<li><font style="font-size: 32px;">2-byte process id</font></li>
+<li><font style="font-size: 32px;">3-byte counter &nbsp;</font></li>
+</ul>
+</ul>
+<font style="font-size: 54px;"><span><br></span></font>
+</div></section><section class="future" style="display: block;" hidden=""><h2>4-fundamentals...</h2>
+<div style="text-align: left;">
+<ul>
+<li><i><u>GridFS</u></i></li>
+<ul>
+<li><font style="font-size: 32px;">It is a specification for Storing and Retrieving files that exceeds BSON-document size &nbsp;limit of 16MB.</font></li>
+<li>
+<font style="font-size: 32px;">Instead of storing a file in a single document, GridFS divides a file into parts, or chunks,&nbsp;</font><font style="font-size: 24px;">and stores each of those chunks as a separate document.</font>
+</li>
+</ul>
+</ul>
+<br><ul>
+<li><font style="font-size: 42px;"><u><b><i>Database References</i></b></u></font></li>
+<ul>
+<li><font style="font-size: 24px;">MongoDB does not support Joins</font></li>
+<li><font size="5">In MongoDB some data is <b style="font-style: italic;">denormalized </b>&nbsp;or stored &nbsp;with related data &nbsp;in documents to remove the need for &nbsp;joins.</font></li>
+</ul>
+</ul>
+</div></section></section><section data-previous-indexv="4" class="stack present" style="display: block;"><section class="past" style="display: block;" hidden=""><h2>Mongo DB</h2>
+<div>- By 10Gen</div>
+<div><br></div>
+<div>- In simple words, it is a Document Oriented Database</div>
+<div>- Writes the data in Flat Files in BSON Format <br>(similar to JSON format)</div>
+<div><br></div>
+<div><br></div>
+<div><br></div>
+<div><ul>
+<li>Scalable</li>
+<li>Open Source</li>
+<li>High Performance</li>
+<li>Document Oriented database</li>
+</ul></div></section><section class="past" style="display: block;" hidden=""><h2>Mongo DB</h2>
+<div>&nbsp;- In 1970's , Flat file system was created</div>
+<div>: Problem - No Standard Implementation</div>
+<div><br></div>
+<div>- Relational Database was the answer</div>
+<div>- Standardized implementation, as per the Relational theory given in 1969 by Codd.</div>
+<div><br></div>
+<div>- Relational Databases were the answers until the data became</div>
+<h1>BIG</h1></section><section class="past" style="display: block;" hidden=""><h2>Storage</h2>
+<div style="text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : RDBMS</div>
+<div style="text-align: left;"><br></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul><li>Tables</li></ul></div></blockquote></div></blockquote></blockquote></blockquote></blockquote>
+<div style="text-align: left;"><span><br></span></div>
+<div style="text-align: left;">
+<span>&nbsp;</span><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : NoSQL</span>
+</div>
+<div style="text-align: left;"><span><br></span></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul><li>Collection</li></ul></div></blockquote></blockquote></blockquote></blockquote></blockquote>
+<div><br></div></section><section class="present" style="display: block;"><h2>Schema</h2>
+<div><br></div>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : RDBMS&nbsp;</div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul>
+<li>Schema&nbsp;</li>
+<ul>
+<li>Record</li>
+<ul><li>Field</li></ul>
+</ul>
+</ul></div></blockquote></div></blockquote></blockquote></blockquote></blockquote>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;"><span style="font-size: 35.56910705566406px; font-style: normal; font-variant: normal;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : NoSql</span></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul>
+<li style="font-style: normal;">Collection</li>
+<ul>
+<li style="font-style: normal;">Document</li>
+<ul><li style="font-style: normal;">KeyValuePair</li></ul>
+</ul>
+</ul></div></blockquote></blockquote></blockquote></blockquote></blockquote></section><section class="future" style="display: block;" hidden=""><h2>mongo db</h2>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul>
+<li>Connecting to Mongo</li>
+<ul>
+<li>mongo</li>
+<ul><li>(runs as mongod)</li></ul>
+</ul>
+</ul></div></blockquote></div></blockquote>
+<div><div><br></div></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div><div style="text-align: left;"><ul>
+<li>Show Databases</li>
+<ul><li>$ show dbs</li></ul>
+</ul></div></div></blockquote></blockquote>
+<div><div><br></div></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div><div style="text-align: left;"><ul>
+<li>Use Database</li>
+<ul><li>$ use myDb</li></ul>
+</ul></div></div></blockquote></blockquote>
+<div><div><br></div></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul><li>Next is CRUD operations....</li></ul></div></blockquote></div></blockquote></section><section class="future" style="display: block;" hidden=""><h2>Inserting</h2>
+<div>
+<p></p>
+<pre><code class="ruby"><font style="font-size: 24px;"><span class="variable">$ </span>user1 = { first_name <span class="symbol">:</span> <span class="string">"Nishant"</span> , last_name <span class="symbol">:</span> <span class="string">"Shrivastava"</span>} ;</font></code><code><font style="font-size: 24px;">$ user2 =&nbsp;{ first_name : "Bruce" , last_name : "Wayne"} ;&nbsp;</font></code><code><font style="font-size: 24px;"><br></font></code><code><font style="font-size: 24px;">$ db.users.insert(user1);&nbsp;</font></code><code><font style="font-size: 24px;">$ db.users.insert(user2); </font></code></pre>
+<p></p>
+<ul><li>
+<font style="font-size: 32px;">Confirming that collection exists</font><span style="color: rgb(220, 220, 220); font-family: monospace; white-space: pre-wrap;"> </span>
+</li></ul>
+<font color="#dcdcdc" face="monospace"><span style="white-space: pre-wrap;"><br></span></font><pre><code class="sql"> $ <span class="operator"><span class="keyword">show</span> collections;</span> </code></pre>
+<ul><li><span style="color: rgb(220, 220, 220); font-family: monospace; white-space: pre-wrap;"><font style="color: rgb(238, 238, 238); white-space: normal; font-size: 32px;">Confirming that document exists in users collection</font><span style="font-family: monospace; font-size: 35.56910705566406px; font-style: normal; font-variant: normal;"> </span><br></span></li></ul>
+<font color="#dcdcdc" face="monospace"><span style="white-space: pre-wrap;"><br></span></font><p></p>
+<pre><code class="objectivec"> $ db<span class="variable">.users</span><span class="variable">.find</span>();</code></pre>
+</div></section><section class="future" style="display: block;" hidden=""><h2>Collection</h2>
+<div><pre><code class="ruby"> <span class="variable">$ </span>{</code><code>      "_id" : ObjectId("4c2209f9f3924d31102bd84a") ,&nbsp;</code><code>      "first_name" : "Nishant" ,&nbsp;</code><code>      "last_name" : "Shrivastava"</code><code>   }</code><code>   {</code><code>      "_id" : ObjectId("4c2209fef3924d31102bd84b") , </code><code>      "first_name" : "Bruce",</code><code>      "last_name" : "Wayne"</code><code>   }</code></pre></div></section><section class="future" style="display: none;" hidden=""><h2>READ</h2>
+<div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul><li>find ()</li></ul></div></blockquote></div>
+<div style="text-align: left;"><br></div>
+<div style="text-align: left;"><pre><code class="javascript"> $ <font color="#ffffff"><span style="font-family: monospace;" class="nx">db</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">collection</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">find</span><span style="font-family: monospace;" class="p">(</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="xml"><span class="tag">&lt;</span></span></span><span class="xml"><span class="tag"><span style="font-family: monospace;" class="nx"><span class="title">query</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace;" class="p">,</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="tag">&lt;</span></span><span class="tag"><span style="font-family: monospace;" class="nx"><span class="title">projection</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="p">)</span></span><span style="font-family: monospace;" class="p"></span></font></code></pre></div></section><section class="future" style="display: none;" hidden=""><h2>UPDATE</h2>
+<div><br></div>
+<div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><ul><li>update</li></ul></div></blockquote></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;">
+<div style="text-align: left;"><font style="font-size: 24px;">- updates single document</font></div>
+<div style="text-align: left;"><font style="font-size: 24px;">- can use <b>multi </b><span style="font-style: normal;">&nbsp;option, can update all documents.</span>&nbsp;</font></div>
+</div></blockquote></div></blockquote>
+<div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;">
+<pre><code class="javascript"> $ <font style="font-size: 18px;" color="#ffffff"><span style="font-family: monospace;" class="nx">db</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">collection</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">update</span><span style="font-family: monospace;" class="p">(</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="xml"><span class="tag">&lt;</span></span></span><span class="xml"><span class="tag"><span style="font-family: monospace;" class="nx"><span class="title">query</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace;" class="p">,</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="tag">&lt;</span></span><span class="tag"><span style="font-family: monospace;" class="nx"><span class="title">update</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace;" class="p">,</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="tag">&lt;</span></span><span class="tag"><span style="font-family: monospace;" class="nx"><span class="title">options</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="p">)</span></span><span style="font-family: monospace;" class="p"></span></font></code></pre>
+<ul><li>save</li></ul>
+<br>
+</div></blockquote></div>
+<blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><font style="font-size: 24px;">- performs a special type of update() , depending upon _id</font></div></blockquote></div></blockquote>
+<div style="text-align: left;"><blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div style="text-align: left;"><pre><code class="javascript"><font color="#ffffff"> $ <span style="font-family: monospace;" class="nx">db</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">collection</span><span style="font-family: monospace;" class="p">.</span><span style="font-family: monospace;" class="nx">save</span><span style="font-family: monospace;" class="p">(</span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="o"><span class="xml"><span class="tag">&lt;</span></span></span><span class="xml"><span class="tag"><span style="font-family: monospace;" class="nb"><span class="title">document</span></span><span style="font-family: monospace;" class="o">&gt;</span></span><span style="font-family: monospace;" class="o"></span><span style="font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span style="font-family: monospace;" class="p">)</span></span><span style="font-family: monospace;" class="p"></span></font></code></pre></div></blockquote></div>
+<div style="text-align: left;"><br></div></section><section class="future" style="display: none;" hidden=""><h2>delete</h2>
+<div><br></div>
+<div style="text-align: left;">
+    <blockquote style="margin: 0px 0px 0px 40px; border: none; padding: 0px;">
+        <div style="text-align: left;">
+            <ul><li>remove ()</li></ul>
+<font style="font-size: 54px;" face="monospace"><span style="white-space: pre-wrap;"><br></span></font>
+</div>
+<div style="text-align: left;"><pre><span style="font-size: 24px;"><font color="#ffffff"> </font></span><code><font color="#ffffff"><span class="nx" style="font-size: 24px; font-family: monospace;">$ db</span><span class="p" style="font-size: 24px; font-family: monospace;">.</span><span class="nx" style="font-size: 24px; font-family: monospace;">collection</span><span class="p" style="font-size: 24px; font-family: monospace;">.</span><span class="nx" style="font-size: 24px; font-family: monospace;">remove</span><span class="p" style="font-size: 24px; font-family: monospace;">(</span><span style="font-size: 24px; font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span class="o" style="font-size: 24px; font-family: monospace;">&lt;</span><span class="nx" style="font-size: 24px; font-family: monospace;">query</span><span class="o" style="font-size: 24px; font-family: monospace;">&gt;</span><span class="p" style="font-size: 24px; font-family: monospace;">,</span><span style="font-size: 24px; font-family: monospace; background-color: rgb(245, 245, 245);"> </span><span class="o" style="font-size: 24px; font-family: monospace;">&lt;</span><span class="nx" style="font-size: 24px; font-family: monospace;">justOne</span><span class="o" style="font-size: 24px; font-family: monospace;">&gt;</span><span style="font-size: 24px; font-family: monospace; background-color: rgb(245, 245, 245);"> </span></font></code><span class="p"><font color="#ffffff">)</font></span></pre></div>
+</blockquote>
+</div>
+</section><section class="future" style="display: none;" hidden=""><h2><br></h2>
+<h2><br></h2>
+<h2><br></h2>
+<h2>THank You!</h2></section></section>
+			</div>
+		<div class="backgrounds"><div class="slide-background past"></div><div class="slide-background past"><div class="slide-background past"></div><div class="slide-background past"></div><div class="slide-background past"></div><div class="slide-background present"></div><div class="slide-background future"></div><div class="slide-background future"></div></div><div class="slide-background past"><div class="slide-background past"></div><div class="slide-background past"></div></div><div class="slide-background present"><div class="slide-background past"></div><div class="slide-background past"></div><div class="slide-background past"></div><div class="slide-background present"></div><div class="slide-background future"></div><div class="slide-background future"></div><div class="slide-background future"></div><div class="slide-background future"></div><div class="slide-background future"></div><div class="slide-background future"></div><div class="slide-background future"></div></div></div><div style="display: block;" class="progress"><span style="width: 1010.53px;"></span></div><aside style="display: block;" class="controls"><div class="navigate-left enabled"></div><div class="navigate-right"></div><div class="navigate-up enabled"></div><div class="navigate-down enabled"></div></aside><div class="state-background"></div><div class="pause-overlay"></div></div>
+	</div>
+
+</div>
+
+<div class="column">
+	<header>
+	  <ul class="meta">
+			<li><span class="icon i-user"></span> <a class="value" href="http://slid.es/nishant-shrivastava">Nishant Shrivastava</a></li>
+			<li><span class="icon i-clock"></span> <time class="value ago" datetime="2013-06-21 09:41:20 UTC">5 days ago</time></li>
+			<li><span class="icon i-eye"></span> <span class="value">39</span></li>
+		</ul>
+
+		<ul class="social">
+			<li><div fb-xfbml-state="rendered" class="fb-like fb_edge_widget_with_comment fb_iframe_widget" data-send="false" data-layout="button_count" data-show-faces="false"><span style="height: 21px; width: 73px;"><iframe src="No%20SQL%20by%20Nishant%20Shrivastava_files/like.html" class="fb_ltr" title="Like this content on Facebook." style="border: medium none; overflow: hidden; height: 21px; width: 73px;" name="f1d67b3bfc2bca6" id="f19a947bd4cd9e8" scrolling="no"></iframe></span></div></li>
+			<li><iframe data-twttr-rendered="true" title="Twitter Tweet Button" style="width: 106px; height: 20px;" class="twitter-share-button twitter-count-horizontal" src="No%20SQL%20by%20Nishant%20Shrivastava_files/tweet_button.html" allowtransparency="true" frameborder="0" scrolling="no"></iframe></li>
+			<li><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 90px; height: 20px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="No%20SQL%20by%20Nishant%20Shrivastava_files/fastbutton.html" name="I0_1372160478655" id="I0_1372160478655" vspace="0" tabindex="0" style="position: static; top: 0px; width: 90px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></li>
+		</ul>
+
+		<div class="details has-description">
+			<div class="deck-info">
+				<h2 class="title">No SQL</h2>
+				<p class="description linkify">A simple presentation, for knowing about NOSQL and getting familiar to MongoDB.</p>
+			</div>
+
+			<div class="user-info">
+	<div class="picture" style="background-image: url(//graph.facebook.com/522456734/picture?type=large)"></div>
+	<div class="text">
+		<h2>
+			<a href="http://slid.es/nishant-shrivastava" class="username">Nishant Shrivastava</a>
+		</h2>
+		<p class="description linkify"></p>
+		<ul class="links">
+			
+			 <li><a href="http://twitter.com/n1shant" target="_blank"><span class="icon i-twitter"></span>n1shant</a></li> 
+		</ul>
+	</div>
+	<div class="clear"></div>
+</div>
+
+			<div class="clear"></div>
+		</div>
+	</header>
+
+	<section class="comments" id="comments">
+		<div id="disqus_thread"><iframe src="No%20SQL%20by%20Nishant%20Shrivastava_files/client.html" style="width: 100%; border: medium none; overflow: hidden; height: 0px; display: none;" role="application" allowtransparency="true" data-disqus-uid="2" id="dsq2" frameborder="0" width="100%"></iframe><iframe verticalscrolling="no" horizontalscrolling="no" src="No%20SQL%20by%20Nishant%20Shrivastava_files/a.html" style="width: 100%; border: medium none; overflow: hidden; height: 339px;" role="complementary" allowtransparency="true" data-disqus-uid="3" id="dsq3" frameborder="0" scrolling="no" width="100%"></iframe><iframe style="width: 1018px; border: medium none; overflow: hidden; top: 0px; min-width: 1018px; max-width: 1018px; position: fixed; max-height: 29px; min-height: 29px; height: 29px; display: none;" role="alert" allowtransparency="true" data-disqus-uid="-indicator-north" id="dsq-indicator-north" frameborder="0" scrolling="no"></iframe><iframe style="width: 1018px; border: medium none; overflow: hidden; bottom: 0px; min-width: 1018px; max-width: 1018px; position: fixed; max-height: 29px; min-height: 29px; height: 29px; display: none;" role="alert" allowtransparency="true" data-disqus-uid="-indicator-south" id="dsq-indicator-south" frameborder="0" scrolling="no"></iframe></div>
+	</section>
+
+	<section class="deck-list">
+		<h2>More from <a href="http://slid.es/nishant-shrivastava">Nishant Shrivastava</a></h2>
+		<ul class="carousel">
+			<li>
+  <div class="deck-thumbnail" style="background-image: url(https://s3.amazonaws.com/static.slid.es/images/default-deck-thumbnail.png)">
+    <a class="deck-link" href="http://slid.es/nishant-shrivastava/unix-linux-git"></a>
+  </div>
+  <div class="details">
+    <a class="author" href="http://slid.es/nishant-shrivastava">nishant-shrivastava</a>
+  </div>
+</li>
+
+		</ul>
+	</section>
+
+</div>
+
+      </div>
+      <footer class="global-footer">
+  <small><span>© Slides 2013</span> <a href="http://slid.es/about">About</a> <a href="http://slid.es/pricing">Pricing</a> <a href="http://slides.uservoice.com/" target="_blank">Feedback</a> <a href="http://slid.es/terms">Terms</a> <a href="http://slid.es/privacy">Privacy</a> <a href="http://blog.slid.es/">Blog</a> <a href="http://facebook.com/slidesapp">Facebook</a> <a href="http://twitter.com/slidesapp">Twitter</a></small>
+</footer>
+    </div> <!--! end of #container -->
+    <div id="modal-background"></div>
+<div id="modal-cover"></div>
+<div id="modal">
+
+  <div class="share-deck">
+    <footer>
+      <button class="button xl done">Done</button>
+    </footer>
+  </div>
+
+  <div class="no-session">
+    <h3>Session Expired</h3>
+    <p>You are no longer signed in to Slides. This can happen when you 
+leave the editor idle for too long, log out in a different tab or go 
+offline. To continue please:</p> 
+    <ol>
+      <li>Open the <a href="http://slid.es/" target="_blank">Slides</a> home page in another tab and sign in.</li>
+      <li>Come back to this tab and press the 'Retry' button.</li>
+    </ol>
+    <footer>
+      <button class="button negative ignore xl">Ignore</button>
+      <button class="button retry xl">Retry</button>
+    </footer>
+  </div>
+
+  <div class="edit-html">
+    <h3>Edit HTML</h3>
+    <div id="ace-html" class="editor"></div>
+    <footer>
+        <button class="button negative discard-changes xl">Cancel</button>
+        <button class="button save-changes xl">OK</button>
+    </footer>
+  </div>
+
+  <div class="preview-deck">
+    <div class="spinner centered"></div>
+    <div class="deck"></div>
+    <footer></footer>
+  </div>
+
+</div>
+    <script src="No%20SQL%20by%20Nishant%20Shrivastava_files/application-f70e83fda4001dfeab5bbbbf6f582e27.js" type="text/javascript"></script>
+    	<script src="No%20SQL%20by%20Nishant%20Shrivastava_files/reveal.js" type="text/javascript"></script>
+	<script>
+	var SLConfig = {
+		
+		deck: {
+			user: {
+				name: "Nishant Shrivastava",
+				username: "nishant-shrivastava"
+			},
+			id: "59881",
+			slug: "no-sql",
+			title: "No SQL",
+			description: "A simple presentation, for knowing about NOSQL and getting familiar to MongoDB.",
+			published: true,
+			background_transition: "",
+			transition: "default",
+			theme_font: "league",
+			theme_color: "grey-blue",
+			rolling_links: true,
+			should_loop: false,
+			center: false,
+			rtl: false,
+			thumbnail_url: "https://s3.amazonaws.com/media-p.slid.es/thumbnails/nishantshrivastava/d9bb39/no-sql.jpg"
+		}
+	}
+</script>
+
+    
+  <script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {
+NREUMQ.push(["load",new Date().getTime()]);
+var e=document.createElement("script");
+e.type="text/javascript";
+e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" +
+  "rpm-images.newrelic.com/42/eum/rum.js";
+document.body.appendChild(e);
+if(NREUMQ.a)NREUMQ.a();
+};
+NREUMQ.a=window.onload;window.onload=NREUMQ.f;
+};
+NREUMQ.push(["nrfj","beacon-3.newrelic.com","4fd2e9786b","1563900","cApZREQKWl9XFxZQVlAORB9FDVlE",0,127,new Date().getTime(),"","","","",""]);</script>
+
+<div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="No%20SQL%20by%20Nishant%20Shrivastava_files/xd_arbiter.html" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0" scrolling="no"></iframe><iframe src="No%20SQL%20by%20Nishant%20Shrivastava_files/xd_arbiter_002.html" style="border: medium none;" tab-index="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0" scrolling="no"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="No%20SQL%20by%20Nishant%20Shrivastava_files/ping.html" style="display: none;" allowtransparency="true" name="f1e8c33205c616c" frameborder="0" scrolling="no"></iframe></div></div></div><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/highlight.js" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/notes.js" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/rum.js" type="text/javascript"></script><script src="No%20SQL%20by%20Nishant%20Shrivastava_files/4fd2e9786b" type="text/javascript"></script></body></html>

@@ -1,0 +1,31 @@
+create table assesment1(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+name VARCHAR(15) NOT NULL,
+passmarks TINYINT(3)  UNSIGNED  NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id)
+);
+
+
+
+
+insert into assesment1 values(
+NULL,'assesment1',100,NOW(),NOW());
+
+
+
+insert into assesment1 values(
+NULL,'assesment2',100,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment3',80,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment4',50,NOW(),NOW());
+
+
+insert into assesment1 values(
+NULL,'assesment5',150,NOW(),NOW());

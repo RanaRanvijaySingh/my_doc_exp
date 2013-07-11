@@ -1,0 +1,175 @@
+///////////////////////////////1st cllection////////////////////////////////
+user1={
+	user_id : 'u1',
+	name : {fname: 'ranvijay',lname : 'singh'},
+	age 	: 22,
+	asses_id : ['a1','a2']
+	};
+user2={
+	user_id : 'u2',
+	name : {fname: 'aditya',lname : 'kamatar'},
+	age 	: 22,
+	asses_id : ['a1']
+
+	};
+user3={
+	user_id : 'u3',
+	name : {fname: 'goku',lname : 'warrior'},
+	age 	: 23,
+	asses_id : ['a3','a2']
+
+	};
+
+
+
+
+
+//////////////////////////////////////2nd Collection///////////////////////////////////////////////
+
+
+
+assessment1= { 
+		asses_id : 'a1', 
+		name : "ASSESSMENT1", 
+		user_id : [ 'u1','u2'], 
+		category_id : 'c1' ,
+		passed : [ 'u1','u2' ]
+		}
+assessment2= { 
+		asses_id : 'a2', 
+		name : "ASSESSMENT2", 
+		user_id : [ 'u3','u2'], 
+		category_id : 'c2' ,
+		passed : [ 'u3' ]
+		}
+assessment3= { 
+		asses_id : 'a3', 
+		name : "ASSESSMENT3", 
+		user_id : ['u3'], 
+		category_id : 'c2' ,
+		passed : [ 'u3' ]
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////3rd cllection////////////////////////////////
+
+
+
+category1={
+	category_id : 'c1',
+	name : 'C',
+	asses_id : [ 'a1' , 'a3' ], 
+	questions: 	[{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 5		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 2		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 
+					marks	: 8		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 	
+					marks	: 5	
+					}]
+		
+};
+
+
+
+
+
+
+category2={
+	category_id : 'c2',
+	name : 'C++',
+	asses_id : [ 'a2' , 'a3' ], 
+	questions: [{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					},
+			{
+					question: 'QUESTIONQUESTIONQUESTION?',
+					options : ['OPTION1','OPTION2','OPTION3','OPTION4'],
+					answer  : 'OPTION2', 		
+					}]
+		}
+};
+
+
+
+
+
+
+
+/////////////////////////////////////queries//////////////////////////////////////
+
+//find all the user giving assessment [1/2/3];
+db.user.find({asses_id : 'a1'});
+//simillarly for assessment 2 and 3
+db.user.find({asses_id : 'a2'});
+db.user.find({asses_id : 'a3'});
+
+
+
+
+// find the assement given by one user [1/2/3]
+db.assessment.find({ user_id : 'u1'  });
+//simillarly to find for user 2 and 3
+db.assessment.find({ user_id : 'u2'  });
+db.assessment.find({ user_id : 'u3'  });
+
+
+
+
+//get all the question in a particular assessment [a1,a2,a3]
+var myCursor1=db.user.find({asses_id : 'a1'});
+myCursor.forEach(printjson);
+//for a2
+var myCursor1=db.user.find({asses_id : 'a2'});
+myCursor.forEach(printjson);
+//for a3
+var myCursor1=db.user.find({asses_id : 'a3'});
+myCursor.forEach(printjson);
+
+
+
+//list all the question in a category [c1/c2]
+db.cateogry.find({category_id : 'c1'},{'questions.question':1});
+db.cateogry.find({category_id : 'c2'},{'questions.question':1});
+
+
+
+

@@ -1,0 +1,57 @@
+create table options1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+questions_id SMALLINT UNSIGNED,
+options VARCHAR(60),
+answer TINYINT(1) UNSIGNED,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id)
+);
+
+
+
+//answer ="correct answer of the question"
+//wrong = "incorrect options of the questions"
+
+insert into options1 values(
+NULL,1,4,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,6,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,8,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,1,2,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'Answer',1,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'Answer',1,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,'wrong',0,NOW(),NOW());
+
+insert into options1 values(
+NULL,3,Answer,1,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,wrong,0,NOW(),NOW());
+
+insert into options1 values(
+NULL,2,wrong,0,NOW(),NOW());

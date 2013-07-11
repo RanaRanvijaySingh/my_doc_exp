@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>form</title>
+<script type="text/javascript">
+
+function check(){
+
+	var email_pat = /[a-zA-Z0-9_.]+@[a-z]+.[a-z]+/;	
+	var id=document.forms["form"]["emailid"].value;	
+
+	var name_pat = /[a-zA-Z ]+/;	
+	var name=document.forms["form"]["name"].value;	
+
+	var mobile_pat = /^\d{10}$/;	
+	var mobile=document.forms["form"]["mobile"].value;
+
+	var password_pat = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;	
+	var password1=document.forms["form"]["password1"].value;	
+		
+	var age_pat = /^\d{2}$/;	
+	var age=document.forms["form"]["age"].value;	
+	
+	if(	id.match(email_pat)&&
+		(name.match(name_pat))&&
+		(mobile.match(mobile_pat))&&
+		(age.match(age_pat))&&
+		password1.match(password_pat)	)
+	{
+		alert(" the details are correct ");
+		//document.getElementById("message").innerHTML="email id correct.";
+	}
+	else
+	{
+			alert("ERROR: please check the fields ... ");
+ 		//document.getElementById("message").innerHTML="check email id..";
+	}
+	
+
+}
+</script>
+
+<style>
+	.style1
+	{
+		margin-top:250px;
+		margin-left:250px;
+	}
+	.title1
+	{
+		margin-top:100px;
+		margin-left:100px;
+	}
+	body
+	{
+		background-image:url('bat.jpg');
+		
+	} 
+</style>
+</head>
+<body >
+
+
+<div id="message" class="title1">please fill up the form  </div>
+<form name ="form">
+ <table cellspacing="2" cellpadding="2" border="0" class="style1">
+
+  <tr>
+   <td >Name</td>
+   <td><input type="text" id="name" /></td>
+ </tr>	 
+
+ <tr>
+   <td >Email</td>
+   <td><input type="text" id="emailid" /></td>
+ </tr>
+
+  <tr>
+   <td >Password</td>
+   <td><input type="password" id="password1" /></td>
+ </tr>
+
+ <tr>
+   <td >Moblie No.</td>
+   <td><input type="text" id="mobile" /></td>
+ </tr>
+
+	
+  <tr>
+   <td >Age</td>
+   <td><input type="text" id="age" /></td>
+ </tr>
+
+
+
+
+</tr>
+ <tr>
+   <td align="right"></td>
+   <td><input type="submit" value="Submit" onClick="check()" /></td>
+ </tr>
+
+  </table>
+  
+
+</form>
+
+ </body>
+ </html>

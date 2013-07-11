@@ -1,0 +1,66 @@
+create table employee(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+fname VARCHAR(15) NOT NULL,
+age TINYINT(3) UNSIGNED NOT NULL,
+dob DATE NOT NULL,
+dept_id TINYINT UNSIGNED NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (dept_id) REFERENCES department(id)
+);
+
+update
+
+insert into employee values(
+NULL,'rana',22,1989-11-5,2);
+
+insert into employee values(
+NULL,'anvay',22,1989-5-11,1);
+
+
+insert into employee values(
+NULL,'vijay',21,1990-12-6,3);
+
+
+insert into employee values(
+NULL,'ameya',23,1988-1-15,1);
+
+
+insert into employee values(
+NULL,'bhuvan',32,1972-11-17,2);
+
+
+insert into employee values(
+NULL,'aditya',22,1989-3-5,1);
+
+
+insert into employee values(
+NULL,'dron',24,1987-10-1,3);
+
+
+insert into employee values(
+NULL,'rakesh',25,1986-12-12,5);
+
+
+
+create table department(
+id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,
+dept_name VARCHAR(15) NOT NULL,
+PRIMARY KEY(id)
+);
+
+insert into department values(
+NULL,'computerScience');
+
+
+insert into department values(
+NULL,'informationScience');
+
+
+insert into department values(
+NULL,'electrical');
+
+insert into department values(
+NULL,'mechanical');
+
+insert into department values(
+NULL,'civil');

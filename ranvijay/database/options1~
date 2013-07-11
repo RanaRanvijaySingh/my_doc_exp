@@ -1,0 +1,10 @@
+create table options1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+questions_id SMALLINT UNSIGNED,
+options VARCHAR(60),
+answer TINYINT(1) UNSIGNED,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (questions_id) REFERENCES questions1(id)
+);

@@ -1,0 +1,11 @@
+create table user_assesment1(
+id TINYINT UNSIGNED  NOT NULL AUTO_INCREMENT,
+user_id TINYINT UNSIGNED,
+assesment_id TINYINT UNSIGNED,
+marks TINYINT(3) UNSIGNED NOT NULL,
+created DATE NOT NULL,
+modified DATETIME NOT NULL,
+PRIMARY KEY(id),
+FOREIGN KEY (user_id) REFERENCES user1(id),
+FOREIGN KEY (assesment_id) REFERENCES assesment1(id)
+);

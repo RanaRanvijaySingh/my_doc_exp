@@ -1,0 +1,38 @@
+<html>
+	<title>mind game</title>
+<head>
+
+<script>
+
+function flip()
+{
+	alert("clicked");	
+}
+	
+	
+</script>
+
+
+</head>
+	<body>
+		<table >
+				
+			<tr>
+				<td id="b1" onclick=flip()><img src="box.png"></td>
+				<td id="b2"><img src="box.png"></td>
+				<td id="b3"><img src="box.png"></td>
+			</tr>
+			<tr>
+				<td id="b4"><img src="box.png"></td>
+				<td id="b5"><img src="box.png"></td>
+				<td id="b6"><img src="box.png"></td>
+			</tr>
+			<tr>
+				<td id="b7"><img src="box.png"></td>
+				<td id="b8"><img src="box.png"></td>
+				<td id="b9"><img src="box.png"></td>
+			</tr>
+		
+		</table>	
+	</body>
+</html>

@@ -1,0 +1,14 @@
+import java.io.*;
+class College
+{
+	Student student[];
+	Faculty faculty[];
+	Department dept;
+	Sport sports;
+	
+	
+	public static void main(String args[])
+	{
+		
+	}
+}

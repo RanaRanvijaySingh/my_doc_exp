@@ -1,0 +1,1 @@
+twttr.receiveCount({"count":31,"url":"http:\/\/javarevisited.blogspot.com\/2011\/04\/synchronization-in-java-synchronized.html\/"});

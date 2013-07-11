@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" src="Java%20Collections%20Framework%20Tutorial_files/cbgapi.loaded_0"></script><script src="Java%20Collections%20Framework%20Tutorial_files/auth013.js" type="text/javascript"></script><script gapi_processed="true" src="Java%20Collections%20Framework%20Tutorial_files/plusone.js" type="text/javascript"></script><link media="all" href="Java%20Collections%20Framework%20Tutorial_files/widget115.css" type="text/css" rel="stylesheet">
+<meta charset="utf-8">
+<title>Java Collections Framework Tutorial</title>
+<link rel="shortcut icon" href="http://www.tutorialspoint.com/favicon.ico" type="image/x-icon">
+<meta name="description" content="Java Collections Framework Tutorial - Learning Java in simple and easy steps : A beginner's tutorial containing complete knowledge of Java Syntax Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<meta name="Keywords" content="Java, Tutorials, Learning, Beginners, Basics, Object Oriented Language, Methods, Overriding, Inheritance, Polymorphism, Interfaces, Packages, Collections, Networking, Multithreading, Generics, Multimedia, Serialization, GUI">
+<!-- base href="http://www.tutorialspoint.com/" -->
+<link rel="stylesheet" type="text/css" href="Java%20Collections%20Framework%20Tutorial_files/style.css">
+<link rel="stylesheet" type="text/css" href="Java%20Collections%20Framework%20Tutorial_files/prettify.css">
+<script type="text/javascript" src="Java%20Collections%20Framework%20Tutorial_files/prettify.js"></script>
+<style media="screen" type="text/css">
+/* Java Scheme */
+#header{ 
+background:#F3943D !important;
+}
+#topmenu
+{
+background-color:#5382A1 !important;
+}
+#leftcol ul.menu li.heading 
+{
+background:#F3943D !important;
+border:1px solid #964800 !important;
+}
+#leftcol, #middlecol, #rightcol {min-height:1520px; padding:0px;}
+</style>
+<script src="Java%20Collections%20Framework%20Tutorial_files/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-232293-6";
+urchinTracker();
+</script>
+<div id="_atssh" style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000;"><iframe src="Java%20Collections%20Framework%20Tutorial_files/sh121.html" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border: 0px none; left: 0px; top: 0px;" title="AddThis utility frame" id="_atssh50"></iframe></div><script src="Java%20Collections%20Framework%20Tutorial_files/core083.js" type="text/javascript"></script></head>
+<body onload="prettyPrint()">
+<div id="header">
+<div class="wrapper">
+<h1 class="logo"><a href="http://www.tutorialspoint.com/index.htm">Tutorials Point - Simply Easy Learning</a></h1>
+<div id="search">
+<form method="get" id="searchform" name="searchform" action="http://www.google.com/search" target="_blank">
+<input name="sitesearch" value="www.tutorialspoint.com" type="hidden">
+<input name="as_q" id="s" value="arraylist" onfocus="if (this.value == 'Search this site...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search this site...';}" type="text">
+<input value="FORID:11" name="cof" type="hidden">
+<input name="ie" value="ISO-8859-1" type="hidden">
+<input class="submit btn" src="Java%20Collections%20Framework%20Tutorial_files/icon-search.png" alt="Go" type="image">
+</form>
+</div>
+</div>
+</div>
+<div id="topmenu">
+<div class="wrapper">
+<div id="left">
+<a href="http://www.tutorialspoint.com/index.htm" target="_top">HOME </a>
+<a href="http://www.tutorialspoint.com/java/index.htm" target="_top">JAVA </a>
+<a href="http://www.tutorialspoint.com/php/index.htm" target="_top">PHP </a>
+<a href="http://www.tutorialspoint.com/python/index.htm" target="_top">Python </a>
+<a href="http://www.tutorialspoint.com/ruby/index.htm" target="_top">Ruby </a>
+<a href="http://www.tutorialspoint.com/perl/index.htm" target="_top">Perl </a>
+<a href="http://www.tutorialspoint.com/html/index.htm" target="_top">HTML </a>
+<a href="http://www.tutorialspoint.com/css/index.htm" target="_top">CSS </a>
+<a href="http://www.tutorialspoint.com/javascript/index.htm" target="_top">Javascript </a>
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a>
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a>
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+<a href="http://www.tutorialspoint.com/more.htm" target="_top">MORE...</a>
+</div>
+<div id="right">
+<a href="http://www.tutorialspoint.com/references.htm" target="_top">REFERENCES</a> |
+<a href="http://www.tutorialspoint.com/forums/index.php" target="_top">FORUM</a> |
+<a href="http://www.tutorialspoint.com/about/index.htm" target="_top">ABOUT</a> |
+<a href="http://www.tutorialspoint.com/about/contact_us.htm" target="_top">CONTACT</a>
+</div>
+</div>
+</div>
+<div class="wrapper">
+<div id="leftcol">
+<div class="mini-logo">
+<img src="Java%20Collections%20Framework%20Tutorial_files/java-mini-logo.png" alt="Java Tutorial">
+</div>
+<ul class="menu">
+<li class="heading">Java Basics</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/index.htm">Java - Home</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overview.htm">Java - Overview</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_environment_setup.htm">Java - Environment Setup</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_syntax.htm">Java - Basic Syntax</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_object_classes.htm">Java - Object &amp; Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_datatypes.htm">Java - Basic Datatypes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_variable_types.htm">Java - Variable Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_modifier_types.htm">Java - Modifier Types</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_basic_operators.htm">Java - Basic Operators</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_loop_control.htm">Java - Loop Control</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_decision_making.htm">Java - Decision Making</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_numbers.htm">Java - Numbers</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_characters.htm">Java - Characters</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_strings.htm">Java - Strings</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_arrays.htm">Java - Arrays</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_date_time.htm">Java - Date &amp; Time</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_regular_expressions.htm">Java - Regular Expressions</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_methods.htm">Java - Methods</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_files_io.htm">Java - Files and I/O</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_exceptions.htm">Java - Exceptions</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Object Oriented</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_inheritance.htm">Java - Inheritance</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_overriding.htm">Java - Overriding</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_polymorphism.htm">Java - Polymorphism</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_abstraction.htm">Java - Abstraction</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_encapsulation.htm">Java - Encapsulation</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_interfaces.htm">Java - Interfaces</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_packages.htm">Java - Packages</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Advanced</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_data_structures.htm">Java - Data Structures</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_collections.htm"><b>Java - Collections</b></a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_generics.htm">Java - Generics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_serialization.htm">Java - Serialization</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_networking.htm">Java - Networking</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_sending_email.htm">Java - Sending Email</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_multithreading.htm">Java - Multithreading</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_applet_basics.htm">Java - Applet Basics</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_documentation.htm">Java - Documentation</a></li>
+</ul>
+<ul class="menu">
+<li class="heading">Java Useful Resources</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_quick_guide.htm">Java - Quick Guide</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_library_classes.htm">Java - Library Classes</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/java/java_useful_resources.htm">Java Useful Resources</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/javaexamples/index.htm">Java - Examples</a></li>
+</ul>
+<ul class="menu">
+<li class="sreading">Selected Reading</li>
+<li><a target="_top" href="http://www.tutorialspoint.com/developers_best_practices/index.htm">Developer's Best Practices</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/effective_resume_writing.htm">Effective Resume Writing</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_glossary.htm">Computer Glossary</a></li>
+<li><a target="_top" href="http://www.tutorialspoint.com/computer_whoiswho.htm">Who is Who</a></li>
+</ul>
+</div><!-- leftcol -->
+<div id="middlecol">
+<!-- PRINTING STARTS HERE -->
+<div class="content">
+<h1>Java Collections Framework</h1>
+<div class="topgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "image";
+google_ad_channel = "";
+//--></script>
+<script type="text/javascript" src="Java%20Collections%20Framework%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_data_structures.htm">Previous Page</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_generics.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+<p>Prior to Java 2, Java provided ad hoc classes such as <b>Dictionary, Vector, Stack</b>, and <b>Properties</b>
+ to store and manipulate groups of objects. Although these classes were 
+quite useful, they lacked a central, unifying theme. Thus, the way that 
+you used Vector was different from the way that you used Properties.</p>
+<p>The collections framework was designed to meet several goals.</p>
+<ul class="list">
+<li><p>The framework had to be high-performance. The implementations for
+ the fundamental collections (dynamic arrays, linked lists, trees, and 
+hash tables) are highly efficient.</p></li>
+<li><p>The framework had to allow different types of collections to work
+ in a similar manner and with a high degree of interoperability.</p></li>
+<li><p>Extending and/or adapting a collection had to be easy.</p></li>
+</ul>
+<p>Toward this end, the entire collections framework is designed around a
+ set of standard interfaces. Several standard implementations such as <b>LinkedList, HashSet,</b> and <b>TreeSet</b>, of these interfaces are provided that you may use as-is and you may also implement your own collection, if you choose.</p>
+<p>A collections framework is a unified architecture for representing 
+and manipulating collections. All collections frameworks contain the 
+following:</p>
+<ul class="list">
+<li><p><b>Interfaces:</b> These are abstract data types that represent 
+collections. Interfaces allow collections to be manipulated 
+independently of the details of their representation. In object-oriented
+ languages, interfaces generally form a hierarchy.</p></li>
+<li><p><b>Implementations i.e. Classes:</b> These are the concrete implementations of the collection interfaces. In essence, they are reusable data structures.</p></li>
+<li><p><b>Algorithms:</b> These are the methods that perform useful 
+computations, such as searching and sorting, on objects that implement 
+collection interfaces. The algorithms are said to be polymorphic: that 
+is, the same method can be used on many different implementations of the
+ appropriate collection interface.</p></li>
+</ul>
+<p>In addition to collections, the framework defines several map 
+interfaces and classes. Maps store key/value pairs. Although maps are 
+not <i>collections</i> in the proper use of the term, but they are fully integrated with collections.</p>
+<h2>The Collection Interfaces:</h2>
+<p>The collections framework defines several interfaces. This section provides an overview of each interface:</p>
+<table class="src">
+<tbody><tr>
+<th>SN</th><th>Interfaces with Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/java_collection_interface.htm">The Collection Interface</a><br>This enables you to work with groups of objects; it is at the top of the
+collections hierarchy.</td></tr>
+<tr><td>2</td><td><a href="http://www.tutorialspoint.com/java/java_list_interface.htm">The List Interface</a><br>This extends <b>Collection</b> and an instance of List stores an ordered collection of elements. </td></tr>
+<tr><td>3</td><td><a href="http://www.tutorialspoint.com/java/java_set_interface.htm">The Set</a><br> This extends Collection to handle sets, which must contain unique elements</td></tr>
+<tr><td>4</td><td><a href="http://www.tutorialspoint.com/java/java_sortedset_interface.htm">The SortedSet</a><br> This extends Set to handle sorted sets</td></tr>
+<tr><td>5</td><td><a href="http://www.tutorialspoint.com/java/java_map_interface.htm">The Map</a><br> This maps unique keys to values.</td></tr>
+<tr><td>6</td><td><a href="http://www.tutorialspoint.com/java/java_mapentry_interface.htm">The Map.Entry</a><br> This describes an element (a key/value pair) in a map. This is an inner class of Map.</td></tr>
+<tr><td>7</td><td><a href="http://www.tutorialspoint.com/java/java_sortedmap_interface.htm">The SortedMap</a><br> This extends Map so that the keys are maintained in ascending order.</td></tr>
+<tr><td>8</td><td><a href="http://www.tutorialspoint.com/java/java_enumeration_interface.htm">The Enumeration</a><br>
+ This is legacy interface and defines the methods by which you can 
+enumerate (obtain one at a time) the elements in a collection of 
+objects. This legacy interface has been superceded by Iterator.</td></tr>
+</tbody></table>
+<h2>The Collection Classes:</h2>
+<p>Java provides a set of standard collection classes that implement 
+Collection interfaces. Some of the classes provide full implementations
+that can be used as-is and others are abstract class, providing skeletal
+ implementations that are used as starting points for creating concrete 
+collections.</p>
+<p>The standard collection classes are summarized in the following table:</p>
+<table class="src">
+<tbody><tr>
+<th>SN</th><th>Classes with Description</th></tr>
+<tr><td>1</td><td><b>AbstractCollection </b><br>Implements most of the Collection interface.</td></tr>
+<tr><td>2</td><td><b>AbstractList </b><br>Extends AbstractCollection and implements most of the List interface.</td></tr>
+<tr><td>3</td><td><b>AbstractSequentialList </b><br>Extends AbstractList for use by a collection that uses
+sequential rather than random access of its elements.</td></tr>
+<tr><td>4</td><td><a href="http://www.tutorialspoint.com/java/java_linkedlist_class.htm">LinkedList </a><br>Implements a linked list by extending AbstractSequentialList.</td></tr>
+<tr><td>5</td><td><a href="http://www.tutorialspoint.com/java/java_arraylist_class.htm">ArrayList </a><br>Implements a dynamic array by extending AbstractList.</td></tr>
+<tr><td>6</td><td><b>AbstractSet </b><br>Extends AbstractCollection and implements most of the Set interface.</td></tr>
+<tr><td>7</td><td><a href="http://www.tutorialspoint.com/java/java_hashset_class.htm">HashSet </a><br>Extends AbstractSet for use with a hash table.</td></tr>
+<tr><td>8</td><td><a href="http://www.tutorialspoint.com/java/java_linkedhashset_class.htm">LinkedHashSet </a><br>Extends HashSet to allow insertion-order iterations.</td></tr>
+<tr><td>9</td><td><a href="http://www.tutorialspoint.com/java/java_treeset_class.htm">TreeSet </a><br>Implements a set stored in a tree. Extends AbstractSet.</td></tr>
+<tr><td>10</td><td><b>AbstractMap </b><br>Implements most of the Map interface.</td></tr>
+<tr><td>11</td><td><a href="http://www.tutorialspoint.com/java/java_hashmap_class.htm">HashMap </a><br>Extends AbstractMap to use a hash table.</td></tr>
+<tr><td>12</td><td><a href="http://www.tutorialspoint.com/java/java_treemap_class.htm">TreeMap </a><br>Extends AbstractMap to use a tree.</td></tr>
+<tr><td>13</td><td><a href="http://www.tutorialspoint.com/java/java_weakhashmap_class.htm">WeakHashMap </a><br>Extends AbstractMap to use a hash table with weak keys.</td></tr>
+<tr><td>14</td><td><a href="http://www.tutorialspoint.com/java/java_linkedhashmap_class.htm">LinkedHashMap </a><br>Extends HashMap to allow insertion-order iterations.</td></tr>
+<tr><td>15</td><td><a href="http://www.tutorialspoint.com/java/java_identityhashmap_class.htm">IdentityHashMap </a><br>Extends AbstractMap and uses reference equality when comparing documents.</td></tr>
+</tbody></table>
+<p>The <i>AbstractCollection, AbstractSet, AbstractList, AbstractSequentialList</i> and <i>AbstractMap</i> classes provide skeletal implementations of the core collection interfaces, to minimize the effort required to implement them.</p>
+<p>The following legacy classes defined by java.util has been discussed in previous tutorial:</p>
+<table class="src">
+<tbody><tr><th>SN</th><th>Classes with Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/java_vector_class.htm">Vector </a><br>This implements a dynamic array. It is similar to ArrayList, but with some differences.</td></tr>
+<tr><td>2</td><td><a href="http://www.tutorialspoint.com/java/java_stack_class.htm">Stack </a><br>Stack is a subclass of Vector that implements a standard last-in, first-out stack.</td></tr>
+<tr><td>3</td><td><a href="http://www.tutorialspoint.com/java/java_dictionary_class.htm">Dictionary</a><br>Dictionary is an abstract class that represents a key/value storage repository and operates much like Map.</td></tr>
+<tr><td>4</td><td><a href="http://www.tutorialspoint.com/java/java_hashtable_class.htm">Hashtable</a><br>Hashtable was part of the original java.util and is a concrete implementation of a Dictionary.</td></tr>
+<tr><td>5</td><td><a href="http://www.tutorialspoint.com/java/java_properties_class.htm">Properties</a><br>Properties
+ is a subclass of Hashtable. It is used to maintain lists of values in 
+which the key is a String and the value is also a String.</td></tr>
+<tr><td>6</td><td><a href="http://www.tutorialspoint.com/java/java_bitset_class.htm">BitSet</a><br>A BitSet class creates a special type of array that holds bit values. This array can
+increase in size as needed.</td></tr>
+</tbody></table>
+<h2>The Collection Algorithms:</h2>
+<p>The collections framework defines several algorithms that can be 
+applied to collections and maps. These algorithms are defined as static 
+methods within the Collections
+class.</p>
+<p>Several of the methods can throw a <b>ClassCastException</b>, which occurs when an attempt is made to compare incompatible types, or an <b>UnsupportedOperationException</b>, which occurs when an attempt is made to modify an unmodifiable collection.</p>
+<p>Collections defines three static variables: EMPTY_SET, EMPTY_LIST, and EMPTY_MAP. All are immutable.</p>
+<table class="src">
+<tbody><tr><th>SN</th><th>Algorithms with Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/java_collection_algorithms.htm">The Collection Algorithms</a><br> Here is a list of all the algorithm implementation.</td></tr>
+</tbody></table>
+<h2>How to use an Iterator ?</h2>
+<p>Often, you will want to cycle through the elements in a collection. For example, you might want to display each element.</p>
+<p>The easiest way to do this is to employ an iterator, which is an 
+object that implements either the Iterator or the ListIterator 
+interface.</p>
+<p>Iterator enables you to cycle through a collection, obtaining or 
+removing elements. ListIterator extends Iterator to allow bidirectional 
+traversal of a list, and the modification of elements.</p>
+<table class="src">
+<tbody><tr><th>SN</th><th>Iterator Methods with Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/java_using_iterator.htm">Using Java Iterator</a><br> Here is a list of all the methods with examples provided by Iterator  and ListIterator interfaces.</td></tr>
+</tbody></table>
+<h2>How to use an Comparator ?</h2>
+<p>Both TreeSet and TreeMap store elements in sorted order. However, it is the comparator that defines precisely what <i>sorted order</i> means.</p>
+<p>This interface lets us sort a given collection any number of 
+different ways. Also this interface can be used to sort any instances of
+ any class.(even classes we cannot modify).</p>
+<table class="src">
+<tbody><tr><th>SN</th><th>Iterator Methods with Description</th></tr>
+<tr><td>1</td><td><a href="http://www.tutorialspoint.com/java/java_using_comparator.htm">Using Java Comparator</a><br> Here is a list of all the methods with examples provided by Comparator Interface.</td></tr>
+</tbody></table>
+<h2>Summary:</h2>
+<p>The Java collections framework gives the programmer access to 
+prepackaged data structures as well as to algorithms for manipulating 
+them.</p>
+<p>A collection is an object that can hold references to other objects. 
+The collection interfaces declare the operations that can be performed 
+on each type of collection.</p>
+<p>The classes and interfaces of the collections framework are in package java.util.</p>
+<br>
+<hr>
+<div class="pre-btn">
+<a href="http://www.tutorialspoint.com/java/java_data_structures.htm">Previous Page</a>
+</div>
+<div class="print-btn">
+<a href="http://www.tutorialspoint.com/cgi-bin/printpage.cgi" target="_blank">Print Version</a>
+</div>
+<div class="pdf-btn">
+<a href="http://www.tutorialspoint.com/java/pdf/java_collections.pdf" alt="Java Collections Framework Tutorial" target="_blank">PDF Version</a>
+</div>
+<div class="nxt-btn">
+<a href="http://www.tutorialspoint.com/java/java_generics.htm">Next Page</a>
+</div>
+<div class="clearer"></div>
+<hr>
+</div>
+<!-- PRINTING ENDS HERE -->
+<div class="bottomgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text";
+google_ad_channel ="9030538898";
+google_color_border="ffffff";
+google_color_link="900b09";
+google_color_url="000000";
+google_color_text="000000";
+//--></script>
+<script type="text/javascript" src="Java%20Collections%20Framework%20Tutorial_files/show_ads.html"></script>
+</div>
+</div><!-- middlecol -->
+<div id="rightcol">
+<!-- AddThis Button BEGIN -->
+<div class="addthis">
+<div class="addthis_toolbox addthis_default_style">
+<a href="#" title="Facebook" class="addthis_button_facebook at300b"><span class="at16nc at300bs at15nc at15t_facebook at16t_facebook"><span class="at_a11y">Share on facebook</span></span></a>
+<a href="#" title="Tweet" class="addthis_button_twitter at300b"><span class="at16nc at300bs at15nc at15t_twitter at16t_twitter"><span class="at_a11y">Share on twitter</span></span></a>
+<script type="text/javascript">
+<!--
+ document.write('<a class="addthis_button_google_plusone" g:plusone:count="false"></a>');
+//-->
+</script><a class="addthis_button_google_plusone at300b" g:plusone:count="false"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" allowtransparency="true" src="Java%20Collections%20Framework%20Tutorial_files/fastbutton.html" name="I0_1372838095091" id="I0_1372838095091" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div></a>
+<a title="Linkedin" target="_blank" href="http://www.addthis.com/bookmark.php?v=300&amp;winname=addthis&amp;pub=ra-4f661ec623a400f0&amp;source=tbx-300&amp;lng=en-US&amp;s=linkedin&amp;url=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_collections.htm&amp;title=Java%20Collections%20Framework%20Tutorial&amp;ate=AT-ra-4f661ec623a400f0/-/-/51d3d8cee0555bc3/2&amp;frommenu=1&amp;uid=51d3d8ced3bb111f&amp;ct=1&amp;pre=http%3A%2F%2Fwww.tutorialspoint.com%2Fjava%2Fjava_generics.htm&amp;tt=0&amp;captcha_provider=nucaptcha" class="addthis_button_linkedin at300b"><span class="at16nc at300bs at15nc at15t_linkedin at16t_linkedin"><span class="at_a11y">Share on linkedin</span></span></a>
+<a href="#" title="Email" target="_blank" class="addthis_button_email at300b"><span class="at16nc at300bs at15nc at15t_email at16t_email"><span class="at_a11y">Share on email</span></span></a>
+<a href="#" class="addthis_button_compact at300m"><span class="at16nc at300bs at15nc at15t_compact at16t_compact"><span class="at_a11y">More Sharing Services</span></span></a>
+<div class="atclear"></div></div>
+<script type="text/javascript" src="Java%20Collections%20Framework%20Tutorial_files/addthis_widget.js"></script>
+</div>
+<!-- AddThis Button END -->
+<div class="localad">
+<a rel="nofollow" href="http://www.modernindianbabynames.com/" target="_blank" title="Modern Baby Names">Modern Baby Names</a>
+</div>
+<div class="localad">
+<a rel="nofollow" href="http://www.photofuntoos.com/" target="_blank" title="Online Photo Editing">Online Photo Editing</a>
+</div>
+<div class="rightgooglead">
+<div style="padding-bottom:5px;padding-left:10px;">Advertisements</div>
+<script type="text/javascript"><!--
+google_ad_client = "pub-7133395778201029";
+google_ad_width = 160;
+google_ad_height = 600;
+google_ad_format = "160x600_as";
+google_ad_type = "image";
+google_ad_channel ="";
+//--></script>
+<script type="text/javascript" src="Java%20Collections%20Framework%20Tutorial_files/show_ads.html"> 
+</script>
+</div>
+</div><!-- rightcol -->
+<div style="clear:both;"></div>
+</div><!-- wrapper -->
+<div id="footer">
+<div class="wrapper">
+<div id="bottommenu">
+<a href="http://www.tutorialspoint.com/asp.net/index.htm" target="_top">ASP.NET </a> |
+<a href="http://www.tutorialspoint.com/jquery/index.htm" target="_top">jQuery </a> |
+<a href="http://www.tutorialspoint.com/ajax/index.htm" target="_top">AJAX </a> |
+<a href="http://www.tutorialspoint.com/ant/index.htm" target="_top">ANT</a> |
+<a href="http://www.tutorialspoint.com/jsp/index.htm" target="_top">JSP </a> |
+<a href="http://www.tutorialspoint.com/servlets/index.htm" target="_top">Servlets </a> |
+<a href="http://www.tutorialspoint.com/log4j/index.htm" target="_top">log4j </a> |
+<a href="http://www.tutorialspoint.com/ibatis/index.htm" target="_top">iBATIS </a> |
+<a href="http://www.tutorialspoint.com/hibernate/index.htm" target="_top">Hibernate </a> |
+<a href="http://www.tutorialspoint.com/jdbc/index.htm" target="_top">JDBC </a> |
+<a href="http://www.tutorialspoint.com/struts_2/index.htm" target="_top">Struts </a> |
+<a href="http://www.tutorialspoint.com/html5/index.htm" target="_top">HTML5 </a> |
+<a href="http://www.tutorialspoint.com/sql/index.htm" target="_top">SQL </a> |
+<a href="http://www.tutorialspoint.com/mysql/index.htm" target="_top">MySQL </a> |
+<a href="http://www.tutorialspoint.com/cplusplus/index.htm" target="_top">C++ </a> |
+<a href="http://www.tutorialspoint.com/unix/index.htm" target="_top">UNIX </a>
+</div>
+<div id="copyright">
+<p>Copyright © 2013 by tutorialspoint. All Rights Reserved.</p>
+</div>
+</div>
+</div>
+
+
+</body></html>
